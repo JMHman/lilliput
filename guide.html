@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilliput - 이용 안내</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .container {
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      background-color: #f9f5ee;
+      padding: 2rem 1rem;
+    }
+
+    .content {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .lang-buttons {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .lang-btn {
+      margin: 0 0.3rem;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: normal;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover {
+      background-color: #f5f5f5;
+    }
+
+    .lang-btn.active {
+      border: 2px solid #b35c38;
+      background-color: #fff5ef;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      color: #3c2a1e;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .section h2 {
+      color: #b35c38;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section ul {
+      padding-left: 1rem;
+      list-style-position: inside;
+    }
+
+    .section li {
+      margin-bottom: 0.4rem;
+    }
+
+    .footer {
+      text-align: center;
+      color: #aaa;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <!-- 언어 선택 버튼 -->
+      <div class="lang-buttons">
+        <button class="lang-btn" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+      </div>
+
+      <!-- 제목 -->
+      <h1 id="title">이용 안내</h1>
+
+      <!-- 섹션들이 동적으로 렌더링됨 -->
+      <div id="sections"></div>
+
+      <div class="footer">Lilliput</div>
+    </div>
+  </div>
+
+  <script>
+    // 가이드 데이터
+    const guideData = {
+      ko: {
+        title: "이용 안내",
+        sections: [
+          {
+            title: "어린이",
+            items: [
+              "기본 이용 시간: 2시간",
+              "평일: 20,000원",
+              "주말·공휴일: 22,000원",
+              "(12개월 미만 아동: 평일 8,000원 / 주말·공휴일 8,800원)",
+              "시간 초과 시: 10분당 평일 2,000원 / 주말·공휴일 2,200원 (12개월 미만 동일)",
+            ],
+          },
+          {
+            title: "성인",
+            items: ["입장료: 1인 1메뉴 (음료 또는 음식)"],
+          },
+          {
+            title: "영업시간",
+            items: [
+              "평일: 오전 10:30 ~ 오후 8:30",
+              "주말·공휴일: 오전 10:30 ~ 오후 9:00",
+            ],
+          },
+          {
+            title: "대관 안내",
+            items: [
+              "생일 파티 등 행사로 대관을 원하시는 경우 전화로 문의해 주세요.",
+              "자세한 안내를 도와드리겠습니다.",
+              "02-515-9633",
+            ],
+          },
+        ],
+      },
+      en: {
+        title: "Information",
+        sections: [
+          {
+            title: "Children",
+            items: [
+              "Basic usage time: 2 hours",
+              "Weekdays: 20,000 KRW",
+              "Weekends & holidays: 22,000 KRW",
+              "(Under 12 months: 8,000 KRW weekdays / 8,800 KRW weekends)",
+              "Overtime: Every 10 min - 2,000 KRW (weekdays), 2,200 KRW (weekends, same for under 12 months)",
+            ],
+          },
+          {
+            title: "Adults",
+            items: ["Admission: One Drink or Food per Adult per person"],
+          },
+          {
+            title: "Business Hours",
+            items: [
+              "Weekdays: 10:30 AM ~ 8:30 PM",
+              "Weekends & Holidays: 10:30 AM ~ 9:00 PM",
+            ],
+          },
+          {
+            title: "Rental",
+            items: [
+              "For birthday parties or event space rental, please call us.",
+              "We will guide you with the details.",
+              "02-515-9633",
+            ],
+          },
+        ],
+      },
+      ja: {
+        title: "ご利用案内",
+        sections: [
+          {
+            title: "お子様",
+            items: [
+              "基本利用時間：2時間",
+              "平日：20,000ウォン",
+              "週末・祝日：22,000ウォン",
+              "（12ヶ月未満のお子様：平日8,000ウォン／週末・祝日8,800ウォン）",
+              "時間超過時：10分ごとに平日2,000ウォン／週末・祝日2,200ウォン（12ヶ月未満も同様）",
+            ],
+          },
+          {
+            title: "大人",
+            items: ["入場料：大人お一人につき、ドリンクまたはフード1品のご注文をお願いします"],
+          },
+          {
+            title: "営業時間",
+            items: [
+              "平日：午前10:30 ～ 午後8:30",
+              "週末・祝日：午前10:30 ～ 午後9:00",
+            ],
+          },
+          {
+            title: "貸切案内",
+            items: [
+              "誕生日パーティーなどのイベント貸切をご希望の場合は、お電話でお問い合わせください。",
+              "詳細をご案内いたします。",
+              "02-515-9633",
+            ],
+          },
+        ],
+      },
+      zh: {
+        title: "使用指南",
+        sections: [
+          {
+            title: "儿童",
+            items: [
+              "基本使用时间：2小时",
+              "平日：20,000韩元",
+              "周末及节假日：22,000韩元",
+              "（12个月以下儿童：平日8,000韩元 / 周末8,800韩元）",
+              "超时：每10分钟 平日2,000韩元 / 周末2,200韩元（12个月以下同样适用）",
+            ],
+          },
+          {
+            title: "成人",
+            items: ["入场费：每位成人需点一份饮品或食物"],
+          },
+          {
+            title: "营业时间",
+            items: [
+              "平日：上午10:30 ~ 下午8:30",
+              "周末及节假日：上午10:30 ~ 下午9:00",
+            ],
+          },
+          {
+            title: "包场信息",
+            items: [
+              "如需生日派对或其他活动的包场服务，请致电咨询。",
+              "我们将为您详细介绍相关信息。",
+              "02-515-9633",
+            ],
+          },
+        ],
+      },
+    };
+
+    // 브라우저 언어 감지
+    const detectLanguage = () => {
+      const browserLang = navigator.language || navigator.userLanguage;
+      if (browserLang.startsWith('ko')) return 'ko';
+      if (browserLang.startsWith('ja')) return 'ja';
+      if (browserLang.startsWith('zh')) return 'zh';
+      return 'en';
+    };
+
+    // 현재 언어 상태
+    let currentLang = detectLanguage();
+
+    // 페이지 렌더링
+    function render() {
+      const data = guideData[currentLang];
+      
+      // 제목 업데이트
+      document.getElementById('title').textContent = data.title;
+      
+      // 섹션들 렌더링
+      const sectionsContainer = document.getElementById('sections');
+      sectionsContainer.innerHTML = '';
+      
+      data.sections.forEach(section => {
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'section';
+        
+        const h2 = document.createElement('h2');
+        h2.textContent = section.title;
+        sectionDiv.appendChild(h2);
+        
+        const ul = document.createElement('ul');
+        section.items.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        sectionDiv.appendChild(ul);
+        
+        sectionsContainer.appendChild(sectionDiv);
+      });
+      
+      // 활성 버튼 표시
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.dataset.lang === currentLang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    // 언어 버튼 클릭 이벤트
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentLang = btn.dataset.lang;
+        render();
+      });
+    });
+
+    // 초기 렌더링
+    render();
+  </script>
+</body>
+</html>
+
+
