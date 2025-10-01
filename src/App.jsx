@@ -36,6 +36,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GuidePage from './pages/GuidePage';
 import MenuPage from './pages/MenuPage';
+import AdminPage from './pages/AdminPage';
+
 
 function App() {
   return (
@@ -43,6 +45,7 @@ function App() {
       <Routes>
         <Route path="/guide" element={<GuidePage />} />
         <Route path="/menu" element={<MenuPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );
