@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilliput - 관리자</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+      padding: 1rem;
+      min-height: 100vh;
+    }
+
+    .header {
+      max-width: 1200px;
+      margin: 0 auto 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    button {
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      border: 1px solid #d1d5db;
+      background-color: #fff;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: background-color 0.2s;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #f3f4f6;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    label {
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    select, input[type="text"] {
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      background-color: #fff;
+      font-size: 0.875rem;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.75rem;
+      min-width: 220px;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    #token-input {
+      min-width: 260px;
+    }
+
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    thead {
+      background-color: #f3f4f6;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+    }
+
+    th {
+      border-bottom: 1px solid #e5e7eb;
+      font-weight: 600;
+    }
+
+    tbody {
+      font-size: 0.875rem;
+    }
+
+    tbody tr:hover {
+      background-color: #f9fafb;
+    }
+
+    tbody td {
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .error {
+      color: #dc2626;
+      padding: 1rem;
+    }
+
+    .empty {
+      color: #6b7280;
+      padding: 1.5rem 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+    }
+
+    .badge-yes {
+      background-color: #059669;
+      color: #fff;
+    }
+
+    .badge-no {
+      background-color: #f3f4f6;
+      color: #374151;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .actions button {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    .phone {
+      font-family: monospace;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="controls">
+      <button id="refresh-btn">Refresh</button>
+
+      <label>
+        Auto
+        <select id="auto-select">
+          <option value="0">Off</option>
+          <option value="5">5s</option>
+          <option value="10" selected>10s</option>
+          <option value="30">30s</option>
+        </select>
+      </label>
+
+      <label>
+        <input type="checkbox" id="hide-visited" checked>
+        Hide visited
+      </label>
+
+      <label>
+        <input type="checkbox" id="only-today">
+        Today only
+      </label>
+
+      <input type="text" id="search-input" placeholder="Search name/phone">
+    </div>
+
+    <input type="text" id="token-input" placeholder="X-Admin-Token (optional)">
+  </header>
+
+  <main class="main">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Adults/Children</th>
+            <th>Created</th>
+            <th>Called</th>
+            <th>Visited</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr>
+            <td colspan="8" class="empty">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    // API 설정
+    const API_BASE = ''; // 필요시 'http://localhost:8000' 등으로 설정
+
+    // LocalStorage 유틸
+    function getLocalStorage(key, defaultValue) {
+      try {
+        const item = localStorage.getItem(key);
+        return item !== null ? JSON.parse(item) : defaultValue;
+      } catch {
+        return defaultValue;
+      }
+    }
+
+    function setLocalStorage(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // 시간 포맷팅
+    function formatTime(ts) {
+      if (!ts) return '';
+      const d = new Date(ts);
+      if (isNaN(d.getTime())) return ts;
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      const hh = String(d.getHours()).padStart(2, '0');
+      const mi = String(d.getMinutes()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd} ${hh}:${mi}`;
+    }
+
+    // 같은 날인지 확인
+    function sameDay(ts) {
+      const d = new Date(ts);
+      const now = new Date();
+      return d.getFullYear() === now.getFullYear() &&
+             d.getMonth() === now.getMonth() &&
+             d.getDate() === now.getDate();
+    }
+
+    // 상태 관리
+    let rows = [];
+    let loading = false;
+    let error = '';
+    let timerRef = null;
+
+    // 설정값들
+    let token = getLocalStorage('admin_token', '');
+    let search = getLocalStorage('admin_search', '');
+    let auto = getLocalStorage('admin_auto', 10);
+    let hideVisited = getLocalStorage('admin_hideVisited', true);
+    let onlyToday = getLocalStorage('admin_onlyToday', false);
+
+    // DOM 요소들
+    const refreshBtn = document.getElementById('refresh-btn');
+    const autoSelect = document.getElementById('auto-select');
+    const hideVisitedCheck = document.getElementById('hide-visited');
+    const onlyTodayCheck = document.getElementById('only-today');
+    const searchInput = document.getElementById('search-input');
+    const tokenInput = document.getElementById('token-input');
+    const tableBody = document.getElementById('table-body');
+
+    // 초기값 설정
+    autoSelect.value = auto;
+    hideVisitedCheck.checked = hideVisited;
+    onlyTodayCheck.checked = onlyToday;
+    searchInput.value = search;
+    tokenInput.value = token;
+
+    // 헤더 생성
+    function getHeaders() {
+      const headers = {};
+      if (token && token.trim()) {
+        headers['X-Admin-Token'] = token.trim();
+      }
+      return headers;
+    }
+
+    // 데이터 새로고침
+    async function refresh() {
+      loading = true;
+      error = '';
+      refreshBtn.disabled = true;
+      refreshBtn.textContent = 'Loading...';
+      
+      try {
+        const response = await fetch(`${API_BASE}/api/waiting/list`, {
+          headers: getHeaders()
+        });
+        
+        if (!response.ok) {
+          throw new Error(`/api/waiting/list -> ${response.status}`);
+        }
+        
+        const data = await response.json();
+        rows = Array.isArray(data) ? data : [];
+      } catch (e) {
+        console.error(e);
+        error = String(e?.message || e);
+      } finally {
+        loading = false;
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = 'Refresh';
+        render();
+      }
+    }
+
+    // 액션 (Call/Visit)
+    async function act(kind, phone) {
+      try {
+        const response = await fetch(
+          `${API_BASE}/api/waiting/${encodeURIComponent(phone)}/${kind}`,
+          {
+            method: 'PATCH',
+            headers: getHeaders()
+          }
+        );
+        
+        if (!response.ok) {
+          throw new Error(`${kind} ${response.status}`);
+        }
+        
+        refresh();
+      } catch (e) {
+        console.error(e);
+        alert(`${kind} failed: ${e?.message || e}`);
+      }
+    }
+
+    // 필터링된 데이터
+    function getFilteredRows() {
+      let out = rows.slice();
+      
+      if (hideVisited) {
+        out = out.filter(r => !r.visited);
+      }
+      
+      if (onlyToday) {
+        out = out.filter(r => sameDay(r.ts));
+      }
+      
+      const q = (search || '').toLowerCase().trim();
+      if (q) {
+        out = out.filter(r => 
+          (r.name || '').toLowerCase().includes(q) ||
+          (r.phone || '').toLowerCase().includes(q)
+        );
+      }
+      
+      return out;
+    }
+
+    // 렌더링
+    function render() {
+      const filtered = getFilteredRows();
+      
+      if (error) {
+        tableBody.innerHTML = `<tr><td colspan="8" class="error">${error}</td></tr>`;
+        return;
+      }
+      
+      if (filtered.length === 0) {
+        const msg = loading ? 'Loading...' : 'No data';
+        tableBody.innerHTML = `<tr><td colspan="8" class="empty">${msg}</td></tr>`;
+        return;
+      }
+      
+      tableBody.innerHTML = filtered.map((r, i) => `
+        <tr>
+          <td>${i + 1}</td>
+          <td>${r.name || ''}</td>
+          <td class="phone">${r.phone || ''}</td>
+          <td>${r.adults || 0}/${r.children || 0}</td>
+          <td class="nowrap">${formatTime(r.ts)}</td>
+          <td>
+            <span class="badge ${r.called ? 'badge-yes' : 'badge-no'}">
+              ${r.called ? 'Yes' : 'No'}
+            </span>
+          </td>
+          <td>
+            <span class="badge ${r.visited ? 'badge-yes' : 'badge-no'}">
+              ${r.visited ? 'Yes' : 'No'}
+            </span>
+          </td>
+          <td>
+            <div class="actions">
+              <button 
+                onclick="act('call', '${r.phone}')" 
+                ${r.called ? 'disabled' : ''}>
+                Call
+              </button>
+              <button 
+                onclick="act('visit', '${r.phone}')" 
+                ${r.visited ? 'disabled' : ''}>
+                Visit
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // 자동 새로고침 설정
+    function setupAutoRefresh() {
+      if (timerRef) {
+        clearInterval(timerRef);
+        timerRef = null;
+      }
+      
+      const sec = Number(auto) || 0;
+      if (sec > 0) {
+        timerRef = setInterval(refresh, sec * 1000);
+      }
+    }
+
+    // 이벤트 리스너
+    refreshBtn.addEventListener('click', refresh);
+
+    autoSelect.addEventListener('change', (e) => {
+      auto = Number(e.target.value);
+      setLocalStorage('admin_auto', auto);
+      setupAutoRefresh();
+    });
+
+    hideVisitedCheck.addEventListener('change', (e) => {
+      hideVisited = e.target.checked;
+      setLocalStorage('admin_hideVisited', hideVisited);
+      render();
+    });
+
+    onlyTodayCheck.addEventListener('change', (e) => {
+      onlyToday = e.target.checked;
+      setLocalStorage('admin_onlyToday', onlyToday);
+      render();
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      search = e.target.value;
+      setLocalStorage('admin_search', search);
+      render();
+    });
+
+    tokenInput.addEventListener('input', (e) => {
+      token = e.target.value;
+      setLocalStorage('admin_token', token);
+    });
+
+    // act 함수를 전역으로 노출 (onclick에서 사용)
+    window.act = act;
+
+    // 초기화
+    refresh();
+    setupAutoRefresh();
+  </script>
+</body>
+</html>
+
+
