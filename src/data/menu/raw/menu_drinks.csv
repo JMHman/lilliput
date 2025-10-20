@@ -1,0 +1,42 @@
+﻿category,subcategory,name_en,name_ko,hot_price,ice_price,single_price,notes
+DRINK,ESPRESSO,Americano,아메리카노,7.0,7.5,,
+DRINK,ESPRESSO,Cafe Latte,카페 라떼,7.5,8.0,,
+DRINK,ESPRESSO,Cappuccino,카푸치노,7.5,8.0,,
+DRINK,ESPRESSO,Vanilla Latte,바닐라라떼,8.0,8.5,,
+DRINK,ESPRESSO,Cafe Mocha,카페 모카,8.0,8.5,,
+DRINK,ESPRESSO,Caramel Macchiato,카라멜 마끼아또,8.0,8.5,,
+DRINK,ESPRESSO,Decaffeinated Americano,디카페인 아메리카노,7.5,8.0,,
+DRINK,ESPRESSO,Decaffeinated Cafe Latte,디카페인 카페라떼,8.5,9.0,,
+DRINK,ESPRESSO,Jollypong Latte,죠리퐁 라떼,,,8.0,
+DRINK,ESPRESSO,Tiramisu Latte,티라미수 라떼,,,8.5,
+DRINK,LATTE,Greentea Latte,녹차 라떼,7.5,8.0,,
+DRINK,LATTE,Chocolate Latte,초콜릿 라떼,7.5,8.0,,
+DRINK,LATTE,Royal Milk Tea,로얄 밀크티,7.5,8.0,,
+DRINK,COLD BREW,Dutch Americano,더치 아메리카노,,,7.0,
+DRINK,COLD BREW,Dutch Cube Latte,더치 큐브 라떼,,,8.5,
+DRINK,LILLY-CCINO,Plain Yogurt Lilly-ccino,플레인 요거트 릴리치노,,,8.0,
+DRINK,LILLY-CCINO,Strawberry Yogurt Lilly-ccino,딸기요거트 릴리치노,,,8.5,
+DRINK,LILLY-CCINO,Blueberry Yogurt Lilly-ccino,블루베리 요거트 릴리치노,,,8.5,
+DRINK,FRESH JUICE,Grapefruit Juice,자몽 주스,,,8.5,Natalie’s fresh juice
+DRINK,FRESH JUICE,Orange Juice,오렌지 주스,,,8.5,Natalie’s fresh juice
+DRINK,SODA,Grapefruit Soda,자몽 소다,,,8.5,only Ice
+DRINK,SODA,Lemon Soda,레몬 소다,,,8.5,only Ice
+DRINK,SODA,Citron Soda,유자 소다,,,8.5,only Ice
+DRINK,SODA,Lime Soda,라임 소다,,,8.5,only Ice
+DRINK,FRUIT TEA,Grapefruit Tea,자몽 차,7.0,7.5,,
+DRINK,FRUIT TEA,Lemon Tea,레몬 차,7.0,7.5,,
+DRINK,FRUIT TEA,Citron Tea,유자 차,7.0,7.5,,
+DRINK,FRUIT TEA,Peach Iced Tea,아이스티,,,7.5,only Ice
+DRINK,FRUIT TEA,Peach Iced Tea with Espresso Shot,아샷추,,,8.5,only Ice
+DRINK,OTHER BEVERAGE,Sparkling Water,탄산수,,,6.5,Excluded from 1인 1주문
+DRINK,OTHER BEVERAGE,Soft Drink,탄산음료,,,4.5,Excluded from 1인 1주문
+DRINK,TEA,Marco Polo (Black),마르코 폴로,8.0,8.5,,Mariage Frères
+DRINK,TEA,Wedding Imperial (Black),웨딩 임페리얼,8.0,8.5,,Mariage Frères
+DRINK,TEA,"Casablanca (Black+Green, Mint)",카사블랑카,8.0,8.5,,Mariage Frères
+DRINK,TEA,Rooibos Tea,루이보스티,8.0,8.5,,"Mariage Frères, caffeine-free"
+ALCOHOL,BEER,Kirin Ichiban (330ml),기린이치방,,,13.0,Lager 5.5%
+ALCOHOL,BEER,Terra (330ml),테라,,,10.0,Lager 4.6%
+ALCOHOL,BEER,Jeju Wit Ale (500ml),제주 위트에일,,,10.0,Ale 5.3%
+ALCOHOL,WINE,West Wilder White (250ml),웨스트 와일더 화이트,,,12.0,13%
+ALCOHOL,WINE,West Wilder Sparkling Rosé (250ml),웨스트 와일더 스파클링 로제,,,12.0,13%
+ALCOHOL,WINE,West Wilder Cabernet Sauvignon (250ml),웨스트 와일더 카베르네 쇼비뇽,,,12.0,13%

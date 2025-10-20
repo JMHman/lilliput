@@ -1,0 +1,231 @@
+{
+  "items": {
+    "americano": {
+      "name": "Americano"
+    },
+    "cafe-latte": {
+      "name": "Cafe Latte"
+    },
+    "cappuccino": {
+      "name": "Cappuccino"
+    },
+    "vanilla-latte": {
+      "name": "Vanilla Latte"
+    },
+    "cafe-mocha": {
+      "name": "Cafe Mocha"
+    },
+    "caramel-macchiato": {
+      "name": "Caramel Macchiato"
+    },
+    "decaffeinated-americano": {
+      "name": "Decaffeinated Americano"
+    },
+    "decaffeinated-cafe-latte": {
+      "name": "Decaffeinated Cafe Latte"
+    },
+    "jollypong-latte": {
+      "name": "Jollypong Latte"
+    },
+    "tiramisu-latte": {
+      "name": "Tiramisu Latte"
+    },
+    "greentea-latte": {
+      "name": "Greentea Latte"
+    },
+    "chocolate-latte": {
+      "name": "Chocolate Latte"
+    },
+    "royal-milk-tea": {
+      "name": "Royal Milk Tea"
+    },
+    "dutch-americano": {
+      "name": "Dutch Americano"
+    },
+    "dutch-cube-latte": {
+      "name": "Dutch Cube Latte"
+    },
+    "plain-yogurt-lilly-ccino": {
+      "name": "Plain Yogurt Lilly-ccino"
+    },
+    "strawberry-yogurt-lilly-ccino": {
+      "name": "Strawberry Yogurt Lilly-ccino"
+    },
+    "blueberry-yogurt-lilly-ccino": {
+      "name": "Blueberry Yogurt Lilly-ccino"
+    },
+    "grapefruit-juice": {
+      "name": "Grapefruit Juice"
+    },
+    "orange-juice": {
+      "name": "Orange Juice"
+    },
+    "grapefruit-soda": {
+      "name": "Grapefruit Soda"
+    },
+    "lemon-soda": {
+      "name": "Lemon Soda"
+    },
+    "citron-soda": {
+      "name": "Citron Soda"
+    },
+    "lime-soda": {
+      "name": "Lime Soda"
+    },
+    "grapefruit-tea": {
+      "name": "Grapefruit Tea"
+    },
+    "lemon-tea": {
+      "name": "Lemon Tea"
+    },
+    "citron-tea": {
+      "name": "Citron Tea"
+    },
+    "peach-iced-tea": {
+      "name": "Peach Iced Tea"
+    },
+    "peach-iced-tea-with-espresso-shot": {
+      "name": "Peach Iced Tea with Espresso Shot"
+    },
+    "sparkling-water": {
+      "name": "Sparkling Water"
+    },
+    "soft-drink": {
+      "name": "Soft Drink"
+    },
+    "marco-polo-black": {
+      "name": "Marco Polo (Black)"
+    },
+    "wedding-imperial-black": {
+      "name": "Wedding Imperial (Black)"
+    },
+    "casablanca-blackgreen-mint": {
+      "name": "Casablanca (Black+Green, Mint)"
+    },
+    "rooibos-tea": {
+      "name": "Rooibos Tea"
+    },
+    "kirin-ichiban-330ml": {
+      "name": "Kirin Ichiban (330ml)"
+    },
+    "terra-330ml": {
+      "name": "Terra (330ml)"
+    },
+    "jeju-wit-ale-500ml": {
+      "name": "Jeju Wit Ale (500ml)"
+    },
+    "west-wilder-white-250ml": {
+      "name": "West Wilder White (250ml)"
+    },
+    "west-wilder-sparkling-rose-250ml": {
+      "name": "West Wilder Sparkling Rosé (250ml)"
+    },
+    "west-wilder-cabernet-sauvignon-250ml": {
+      "name": "West Wilder Cabernet Sauvignon (250ml)"
+    },
+    "crab-and-shrimp-pilaf": {
+      "name": "Crab and Shrimp Pilaf"
+    },
+    "bulgogi-pilaf": {
+      "name": "Bulgogi Pilaf"
+    },
+    "bacon-kimchi-fried-rice-with-fried-chicken": {
+      "name": "Bacon Kimchi Fried Rice with Fried Chicken"
+    },
+    "chicken-cobb-salad": {
+      "name": "Chicken Cobb Salad"
+    },
+    "burrata-cheese-salad": {
+      "name": "Burrata Cheese Salad"
+    },
+    "hamburg-steak-and-salad": {
+      "name": "Hamburg Steak and Salad"
+    },
+    "bulgogi-royal-soy-tteokbokki": {
+      "name": "Bulgogi Royal Soy Tteokbokki"
+    },
+    "spicy-tteokbokki-with-assorted-fries": {
+      "name": "Spicy Tteokbokki with Assorted Fries"
+    },
+    "seafood-spicy-tteokbokki": {
+      "name": "Seafood Spicy Tteokbokki"
+    },
+    "original-crispy-chicken": {
+      "name": "Original Crispy Chicken"
+    },
+    "home-made-fried-chicken-french-fries": {
+      "name": "Home-made Fried Chicken & French Fries"
+    },
+    "honey-truffle-french-fries": {
+      "name": "Honey Truffle French Fries"
+    },
+    "okonomiyaki-pizza": {
+      "name": "Okonomiyaki Pizza"
+    },
+    "arugula-caprese-pizza": {
+      "name": "Arugula Caprese Pizza"
+    },
+    "beef-cream-pasta": {
+      "name": "Beef Cream Pasta"
+    },
+    "aglio-e-olio-pasta": {
+      "name": "Aglio e Olio Pasta"
+    },
+    "bacon-tomato-pasta": {
+      "name": "Bacon Tomato Pasta"
+    },
+    "amatriciana": {
+      "name": "Amatriciana"
+    },
+    "shrimp-basil-cream-pasta": {
+      "name": "Shrimp Basil Cream Pasta"
+    },
+    "seafood-pasta-with-tomato-sauce": {
+      "name": "Seafood Pasta with Tomato Sauce"
+    },
+    "gamberi-rose-sauce-with-flying-fish-roe-pasta": {
+      "name": "Gamberi Rose Sauce with Flying Fish Roe Pasta"
+    },
+    "truffle-mushroom-pasta": {
+      "name": "Truffle Mushroom Pasta"
+    }
+  },
+  "categories": {
+    "DRINK": "DRINK",
+    "PIZZA": "Pizza",
+    "ALCOHOL": "Alcohol",
+    "SNACKS": "Snacks",
+    "RICE": "Rice / Pilaf",
+    "STEAK": "Steak",
+    "PASTA": "Pasta",
+    "SALAD": "Salad"
+  },
+  "subcategories": {
+    "ESPRESSO": "Espresso",
+    "TEA": "Tea",
+    "FRESH JUICE": "Fresh Juice",
+    "BEER": "BEER",
+    "FRUIT TEA": "Fruit Tea",
+    "WINE": "WINE",
+    "COLD BREW": "Cold Brew",
+    "SODA": "Soda",
+    "LILLY-CCINO": "Lilly-ccino",
+    "LATTE": "Latte",
+    "OTHER BEVERAGE": "OTHER BEVERAGE"
+  },
+  "ui": {
+    "title": "Lilliput Menu",
+    "drinks": "Drinks",
+    "foods": "Foods",
+    "ingredients": "Ingredients",
+    "hot": "HOT",
+    "ice": "ICE",
+    "price": "Price",
+    "only_ice": "Ice Only",
+    "excluded": "Excluded from one-order rule",
+    "toggle_ingredients": "Show ingredients",
+    "search": "Search",
+    "category": "Category",
+    "language": "Language"
+  }
+}

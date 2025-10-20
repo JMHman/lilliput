@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- 변경 의도: 언어 선택 및 메뉴 버튼을 화면 고정 배치로 개선 -->
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -24,7 +25,7 @@
       display: flex;
       justify-content: center;
       background-color: #f9f5ee;
-      padding: 2rem 1rem;
+      padding: 6rem 1rem 6rem;
     }
 
     .content {
@@ -33,11 +34,36 @@
     }
 
     .lang-buttons {
-      text-align: center;
-      margin-bottom: 1.5rem;
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.6rem;
+      padding: 0.4rem 0.8rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      max-width: calc(100vw - 1.5rem);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .lang-buttons::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .lang-buttons::before,
+    .lang-buttons::after {
+      content: '';
+      display: none;
     }
 
     .lang-btn {
+      flex: 0 0 auto;
       margin: 0 0.3rem;
       padding: 0.4rem 0.8rem;
       border: 1px solid #ccc;
@@ -95,6 +121,74 @@
       margin-top: 2rem;
       font-size: 0.9rem;
     }
+
+    .menu-btn {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.75rem 1.6rem;
+      background-color: #b35c38;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.2s, transform 0.2s;
+      z-index: 1000;
+    }
+
+    .menu-btn:hover {
+      background-color: #9f4f31;
+    }
+
+    .menu-btn:active {
+      transform: translateX(-50%) scale(0.98);
+    }
+
+    @media (max-width: 640px) {
+      .lang-buttons {
+        width: min(280px, 70vw);
+        gap: 0.35rem;
+        padding: 0.25rem 0.8rem;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .lang-buttons::-webkit-scrollbar {
+        display: none;
+      }
+
+      .lang-buttons::before,
+      .lang-buttons::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0.9rem;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .lang-buttons::before {
+        left: 0;
+        background: linear-gradient(90deg, rgba(249, 245, 238, 0.95), rgba(249, 245, 238, 0));
+      }
+
+      .lang-buttons::after {
+        right: 0;
+        background: linear-gradient(270deg, rgba(249, 245, 238, 0.95), rgba(249, 245, 238, 0));
+      }
+
+      .lang-btn {
+        padding: 0.32rem 0.7rem;
+        margin: 0 0.2rem;
+        font-size: 0.9rem;
+        scroll-snap-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -117,6 +211,8 @@
       <div class="footer">Lilliput</div>
     </div>
   </div>
+
+  <a class="menu-btn" href="menu.html" aria-label="메뉴판 보기">메뉴판 보기</a>
 
   <script>
     // 가이드 데이터
@@ -259,24 +355,54 @@
       },
     };
 
+    const STORAGE_KEY = 'lilliputPreferredLang';
+    const LANGUAGE_FALLBACK = 'en';
+
     // 브라우저 언어 감지
     const detectLanguage = () => {
-      const browserLang = navigator.language || navigator.userLanguage;
+      const browserLang = navigator.language || navigator.userLanguage || '';
       if (browserLang.startsWith('ko')) return 'ko';
       if (browserLang.startsWith('ja')) return 'ja';
       if (browserLang.startsWith('zh')) return 'zh';
-      return 'en';
+      return LANGUAGE_FALLBACK;
+    };
+
+    const loadPreferredLanguage = () => {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored && guideData[stored]) {
+          return stored;
+        }
+      } catch (error) {
+        console.warn('언어 설정을 불러오지 못했습니다.', error);
+      }
+      return detectLanguage();
+    };
+
+    const savePreferredLanguage = lang => {
+      try {
+        localStorage.setItem(STORAGE_KEY, lang);
+      } catch (error) {
+        console.warn('언어 설정을 저장하지 못했습니다.', error);
+      }
     };
 
     // 현재 언어 상태
-    let currentLang = detectLanguage();
+    let currentLang = loadPreferredLanguage();
+    const langButtonsContainer = document.querySelector('.lang-buttons');
+    const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
 
     // 페이지 렌더링
     function render() {
-      const data = guideData[currentLang];
+      const data = guideData[currentLang] || guideData[LANGUAGE_FALLBACK];
+      if (!data) {
+        console.error('지원하지 않는 언어 코드입니다:', currentLang);
+        return;
+      }
       
       // 제목 업데이트
       document.getElementById('title').textContent = data.title;
+      document.documentElement.lang = currentLang;
       
       // 섹션들 렌더링
       const sectionsContainer = document.getElementById('sections');
@@ -302,21 +428,35 @@
       });
       
       // 활성 버튼 표시
-      document.querySelectorAll('.lang-btn').forEach(btn => {
+      langButtons.forEach(btn => {
         if (btn.dataset.lang === currentLang) {
           btn.classList.add('active');
         } else {
           btn.classList.remove('active');
         }
       });
+
+      centerActiveLanguageButton();
+    }
+
+    function centerActiveLanguageButton() {
+      if (!langButtonsContainer) return;
+      const activeButton = langButtonsContainer.querySelector('.lang-btn.active');
+      if (activeButton) {
+        activeButton.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      }
     }
 
     // 언어 버튼 클릭 이벤트
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentLang = btn.dataset.lang;
-        render();
-      });
+    langButtons.forEach(btn => {
+      if (!btn.dataset.bound) {
+        btn.addEventListener('click', () => {
+          currentLang = btn.dataset.lang;
+          savePreferredLanguage(currentLang);
+          render();
+        });
+        btn.dataset.bound = 'true';
+      }
     });
 
     // 초기 렌더링
@@ -324,5 +464,3 @@
   </script>
 </body>
 </html>
-
-

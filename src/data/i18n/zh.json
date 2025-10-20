@@ -1,0 +1,41 @@
+{
+  "items": {},
+  "categories": {
+    "DRINK": "DRINK",
+    "PIZZA": "披萨",
+    "ALCOHOL": "酒水",
+    "SNACKS": "小吃",
+    "RICE": "米饭／烩饭",
+    "STEAK": "牛排",
+    "PASTA": "意面",
+    "SALAD": "沙拉"
+  },
+  "subcategories": {
+    "ESPRESSO": "浓缩咖啡",
+    "TEA": "茶",
+    "FRESH JUICE": "鲜榨果汁",
+    "BEER": "BEER",
+    "FRUIT TEA": "水果茶",
+    "WINE": "WINE",
+    "COLD BREW": "冷萃",
+    "SODA": "苏打",
+    "LILLY-CCINO": "Lilly-ccino",
+    "LATTE": "拿铁",
+    "OTHER BEVERAGE": "OTHER BEVERAGE"
+  },
+  "ui": {
+    "title": "Lilliput 菜单",
+    "drinks": "饮品",
+    "foods": "餐点",
+    "ingredients": "配料",
+    "hot": "热",
+    "ice": "冰",
+    "price": "价格",
+    "only_ice": "仅限冰饮",
+    "excluded": "不计入一人一单",
+    "toggle_ingredients": "查看配料",
+    "search": "搜索",
+    "category": "分类",
+    "language": "语言"
+  }
+}
