@@ -1,0 +1,210 @@
+{
+  "items": {
+    "americano": {
+      "name": "아메리카노"
+    },
+    "cafe-latte": {
+      "name": "카페 라떼"
+    },
+    "cappuccino": {
+      "name": "카푸치노"
+    },
+    "vanilla-latte": {
+      "name": "바닐라라떼"
+    },
+    "cafe-mocha": {
+      "name": "카페 모카"
+    },
+    "caramel-macchiato": {
+      "name": "카라멜 마끼아또"
+    },
+    "decaffeinated-americano": {
+      "name": "디카페인 아메리카노"
+    },
+    "decaffeinated-cafe-latte": {
+      "name": "디카페인 카페라떼"
+    },
+    "jollypong-latte": {
+      "name": "죠리퐁 라떼"
+    },
+    "tiramisu-latte": {
+      "name": "티라미수 라떼"
+    },
+    "greentea-latte": {
+      "name": "녹차 라떼"
+    },
+    "chocolate-latte": {
+      "name": "초콜릿 라떼"
+    },
+    "royal-milk-tea": {
+      "name": "로얄 밀크티"
+    },
+    "dutch-americano": {
+      "name": "더치 아메리카노"
+    },
+    "dutch-cube-latte": {
+      "name": "더치 큐브 라떼"
+    },
+    "plain-yogurt-lilly-ccino": {
+      "name": "플레인 요거트 릴리치노"
+    },
+    "strawberry-yogurt-lilly-ccino": {
+      "name": "딸기요거트 릴리치노"
+    },
+    "blueberry-yogurt-lilly-ccino": {
+      "name": "블루베리 요거트 릴리치노"
+    },
+    "grapefruit-juice": {
+      "name": "자몽 주스"
+    },
+    "orange-juice": {
+      "name": "오렌지 주스"
+    },
+    "grapefruit-soda": {
+      "name": "자몽 소다"
+    },
+    "lemon-soda": {
+      "name": "레몬 소다"
+    },
+    "citron-soda": {
+      "name": "유자 소다"
+    },
+    "lime-soda": {
+      "name": "라임 소다"
+    },
+    "grapefruit-tea": {
+      "name": "자몽 차"
+    },
+    "lemon-tea": {
+      "name": "레몬 차"
+    },
+    "citron-tea": {
+      "name": "유자 차"
+    },
+    "peach-iced-tea": {
+      "name": "아이스티"
+    },
+    "peach-iced-tea-with-espresso-shot": {
+      "name": "아샷추"
+    },
+    "sparkling-water": {
+      "name": "탄산수"
+    },
+    "soft-drink": {
+      "name": "탄산음료"
+    },
+    "marco-polo-black": {
+      "name": "마르코 폴로"
+    },
+    "wedding-imperial-black": {
+      "name": "웨딩 임페리얼"
+    },
+    "casablanca-blackgreen-mint": {
+      "name": "카사블랑카"
+    },
+    "rooibos-tea": {
+      "name": "루이보스티"
+    },
+    "kirin-ichiban-330ml": {
+      "name": "기린이치방"
+    },
+    "terra-330ml": {
+      "name": "테라"
+    },
+    "jeju-wit-ale-500ml": {
+      "name": "제주 위트에일"
+    },
+    "west-wilder-white-250ml": {
+      "name": "웨스트 와일더 화이트"
+    },
+    "west-wilder-sparkling-rose-250ml": {
+      "name": "웨스트 와일더 스파클링 로제"
+    },
+    "west-wilder-cabernet-sauvignon-250ml": {
+      "name": "웨스트 와일더 카베르네 쇼비뇽"
+    },
+    "crab-and-shrimp-pilaf": {
+      "name": "통새우 게살 필라프"
+    },
+    "bulgogi-pilaf": {
+      "name": "불고기 필라프"
+    },
+    "bacon-kimchi-fried-rice-with-fried-chicken": {
+      "name": "베이컨 김치볶음밥과 닭튀김"
+    },
+    "chicken-cobb-salad": {
+      "name": "치킨 콥 샐러드"
+    },
+    "burrata-cheese-salad": {
+      "name": "부라타치즈 샐러드"
+    },
+    "hamburg-steak-and-salad": {
+      "name": "함박스테이크와 샐러드"
+    },
+    "bulgogi-royal-soy-tteokbokki": {
+      "name": "궁중 떡볶이"
+    },
+    "spicy-tteokbokki-with-assorted-fries": {
+      "name": "국물 떡볶이와 분식튀김"
+    },
+    "seafood-spicy-tteokbokki": {
+      "name": "해물 떡볶이"
+    },
+    "original-crispy-chicken": {
+      "name": "오리지날 크리스피 치킨"
+    },
+    "home-made-fried-chicken-french-fries": {
+      "name": "수제치킨과 감자튀김"
+    },
+    "honey-truffle-french-fries": {
+      "name": "허니 트러플 감자튀김"
+    },
+    "okonomiyaki-pizza": {
+      "name": "오꼬노미야끼 피자"
+    },
+    "arugula-caprese-pizza": {
+      "name": "루꼴라 카프리제 피자"
+    },
+    "beef-cream-pasta": {
+      "name": "만조 파스타"
+    },
+    "aglio-e-olio-pasta": {
+      "name": "마늘 오일 파스타"
+    },
+    "bacon-tomato-pasta": {
+      "name": "베이컨 토마토 파스타"
+    },
+    "amatriciana": {
+      "name": "아마트리치아나"
+    },
+    "shrimp-basil-cream-pasta": {
+      "name": "쉬림프 바질크림 파스타"
+    },
+    "seafood-pasta-with-tomato-sauce": {
+      "name": "해산물 토마토 파스타"
+    },
+    "gamberi-rose-sauce-with-flying-fish-roe-pasta": {
+      "name": "왕새우 로제 파스타"
+    },
+    "truffle-mushroom-pasta": {
+      "name": "트러플 머쉬룸 파스타"
+    }
+  },
+  "categories": {},
+  "subcategories": {},
+  "ui": {
+    "title": "릴리펏 메뉴",
+    "drinks": "음료",
+    "foods": "음식",
+    "ingredients": "재료",
+    "hot": "HOT",
+    "ice": "ICE",
+    "price": "가격",
+    "only_ice": "아이스 전용",
+    "excluded": "1인 1주문 제외",
+    "toggle_ingredients": "재료보기",
+    "search": "검색",
+    "category": "카테고리",
+    "language": "언어"
+  }
+}

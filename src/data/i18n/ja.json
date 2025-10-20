@@ -1,0 +1,41 @@
+{
+  "items": {},
+  "categories": {
+    "DRINK": "DRINK",
+    "PIZZA": "ピザ",
+    "ALCOHOL": "アルコール",
+    "SNACKS": "スナック",
+    "RICE": "ライス／ピラフ",
+    "STEAK": "ステーキ",
+    "PASTA": "パスタ",
+    "SALAD": "サラダ"
+  },
+  "subcategories": {
+    "ESPRESSO": "エスプレッソ",
+    "TEA": "ティー",
+    "FRESH JUICE": "フレッシュジュース",
+    "BEER": "BEER",
+    "FRUIT TEA": "フルーツティー",
+    "WINE": "WINE",
+    "COLD BREW": "コールドブリュー",
+    "SODA": "ソーダ",
+    "LILLY-CCINO": "リリチーノ",
+    "LATTE": "ラテ",
+    "OTHER BEVERAGE": "OTHER BEVERAGE"
+  },
+  "ui": {
+    "title": "リリパット メニュー",
+    "drinks": "ドリンク",
+    "foods": "フード",
+    "ingredients": "材料",
+    "hot": "ホット",
+    "ice": "アイス",
+    "price": "価格",
+    "only_ice": "アイスのみ",
+    "excluded": "1人1品の対象外",
+    "toggle_ingredients": "材料を表示",
+    "search": "検索",
+    "category": "カテゴリ",
+    "language": "言語"
+  }
+}
