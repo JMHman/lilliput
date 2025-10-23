@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 변경 의도: 메뉴 데이터를 활용한 메뉴판 페이지 구축 및 고정 내비게이션 추가 -->
+<!-- 변경 의도: 메뉴 데이터를 활용한 메뉴판 페이지 구축 및 주말 한정 메뉴 노출 -->
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -471,6 +471,7 @@
     };
 
     const STORAGE_KEY = 'lilliputPreferredLang';
+    const WEEKEND_ONLY_FOOD_NAMES = new Set(['tiramisu', '티라미수', 'ティラミス', '提拉米苏']);
 
     const state = {
       menu: { foods: [], drinks: [] },
@@ -488,6 +489,40 @@
     const guideButton = document.getElementById('guide-btn');
     const langButtonsContainer = document.querySelector('.lang-buttons');
     const langButtons = document.querySelectorAll('.lang-btn');
+
+    function isWeekendInSeoul() {
+      try {
+        const weekday = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Seoul',
+          weekday: 'short',
+        }).format(new Date());
+        return weekday === 'Sat' || weekday === 'Sun';
+      } catch (error) {
+        console.warn('주말 판별에 실패했습니다.', error);
+        const today = new Date().getDay();
+        return today === 0 || today === 6;
+      }
+    }
+
+    function isWeekendOnlyFood(item) {
+      if (!item || typeof item !== 'object') {
+        return false;
+      }
+      const names = [item.name_en, item.name_ko, item.name_ja, item.name_zh];
+      return names.some(
+        name => typeof name === 'string' && WEEKEND_ONLY_FOOD_NAMES.has(name.trim().toLowerCase()),
+      );
+    }
+
+    function filterWeekendLimitedFoods(items) {
+      if (!Array.isArray(items)) {
+        return [];
+      }
+      if (isWeekendInSeoul()) {
+        return items;
+      }
+      return items.filter(item => !isWeekendOnlyFood(item));
+    }
 
     function detectLanguage() {
       const browserLang = navigator.language || navigator.userLanguage || '';
@@ -819,7 +854,8 @@
         const foods = await foodsRes.json();
         const drinks = await drinksRes.json();
 
-        state.menu.foods = Array.isArray(foods) ? foods : [];
+        const foodsArray = Array.isArray(foods) ? foods : [];
+        state.menu.foods = filterWeekendLimitedFoods(foodsArray);
         state.menu.drinks = Array.isArray(drinks) ? drinks : [];
       } catch (error) {
         console.error(error);
