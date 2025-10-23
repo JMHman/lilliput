@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 변경 의도: 언어 선택 및 메뉴 버튼을 화면 고정 배치로 개선 -->
+<!-- 변경 의도: 언어 선택 UI와 메뉴 버튼 다국어 적용 -->
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -219,6 +219,7 @@
     const guideData = {
       ko: {
         title: "이용 안내",
+        menuButtonLabel: "메뉴판 보기",
         sections: [
           {
             title: "어린이",
@@ -253,6 +254,7 @@
       },
       en: {
         title: "Information",
+        menuButtonLabel: "View Menu",
         sections: [
           {
             title: "Children",
@@ -287,6 +289,7 @@
       },
       ja: {
         title: "ご利用案内",
+        menuButtonLabel: "メニューを見る",
         sections: [
           {
             title: "お子様",
@@ -321,6 +324,7 @@
       },
       zh: {
         title: "使用指南",
+        menuButtonLabel: "查看菜单",
         sections: [
           {
             title: "儿童",
@@ -357,6 +361,7 @@
 
     const STORAGE_KEY = 'lilliputPreferredLang';
     const LANGUAGE_FALLBACK = 'en';
+    const fallbackMenuLabel = guideData[LANGUAGE_FALLBACK]?.menuButtonLabel || 'View Menu';
 
     // 브라우저 언어 감지
     const detectLanguage = () => {
@@ -391,6 +396,7 @@
     let currentLang = loadPreferredLanguage();
     const langButtonsContainer = document.querySelector('.lang-buttons');
     const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
+    const menuButton = document.querySelector('.menu-btn');
 
     // 페이지 렌더링
     function render() {
@@ -403,6 +409,11 @@
       // 제목 업데이트
       document.getElementById('title').textContent = data.title;
       document.documentElement.lang = currentLang;
+      const menuLabel = data.menuButtonLabel || fallbackMenuLabel;
+      if (menuButton) {
+        menuButton.textContent = menuLabel;
+        menuButton.setAttribute('aria-label', menuLabel);
+      }
       
       // 섹션들 렌더링
       const sectionsContainer = document.getElementById('sections');
