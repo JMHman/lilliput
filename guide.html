@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 변경 의도: 언어 선택 UI와 메뉴 버튼 다국어 적용 -->
+<!-- 변경 의도: 언어 선택 UI와 메뉴·화장실 안내 다국어 및 모달 적용 -->
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -17,6 +17,10 @@
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.6;
       margin: 0;
+    }
+
+    body.modal-open {
+      overflow: hidden;
     }
 
     .container {
@@ -122,30 +126,119 @@
       font-size: 0.9rem;
     }
 
-    .menu-btn {
+    .floating-actions {
       position: fixed;
       bottom: 1rem;
       left: 50%;
       transform: translateX(-50%);
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .floating-actions .menu-btn,
+    .floating-actions .restroom-btn {
       padding: 0.75rem 1.6rem;
-      background-color: #b35c38;
-      color: #fff;
-      border: none;
       border-radius: 999px;
       font-size: 1rem;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: none;
+      cursor: pointer;
       transition: background-color 0.2s, transform 0.2s;
-      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    .menu-btn:hover {
+    .floating-actions .menu-btn {
+      background-color: #b35c38;
+      color: #fff;
+    }
+
+    .floating-actions .menu-btn:hover {
       background-color: #9f4f31;
     }
 
-    .menu-btn:active {
-      transform: translateX(-50%) scale(0.98);
+    .floating-actions .restroom-btn {
+      background-color: #fff;
+      color: #b35c38;
+      border: 2px solid #b35c38;
+    }
+
+    .floating-actions .restroom-btn:hover {
+      background-color: #fff5ef;
+    }
+
+    .floating-actions .menu-btn:active,
+    .floating-actions .restroom-btn:active {
+      transform: scale(0.98);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      z-index: 2000;
+    }
+
+    .modal-backdrop[hidden] {
+      display: none;
+    }
+
+    .modal-container {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 100%;
+      padding: 1.5rem;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: #555;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: #b35c38;
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      color: #3c2a1e;
+      margin: 0;
+      text-align: center;
+    }
+
+    .modal-steps {
+      list-style: decimal;
+      padding-left: 1.2rem;
+      color: #3c2a1e;
+      font-size: 0.98rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .modal-image {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(60, 42, 30, 0.1);
     }
 
     @media (max-width: 640px) {
@@ -188,6 +281,23 @@
         font-size: 0.9rem;
         scroll-snap-align: center;
       }
+
+      .floating-actions {
+        width: min(320px, 90vw);
+        gap: 0.4rem;
+        flex-direction: column;
+      }
+
+      .floating-actions .menu-btn,
+      .floating-actions .restroom-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .modal-container {
+        max-width: 100%;
+        padding: 1.25rem;
+      }
     }
   </style>
 </head>
@@ -212,7 +322,40 @@
     </div>
   </div>
 
-  <a class="menu-btn" href="menu.html" aria-label="메뉴판 보기">메뉴판 보기</a>
+  <div class="floating-actions">
+    <a class="menu-btn" id="menu-btn" href="menu.html" aria-label="메뉴판 보기">메뉴판 보기</a>
+    <button
+      type="button"
+      class="restroom-btn"
+      id="restroom-btn"
+      aria-haspopup="dialog"
+      aria-controls="restroom-modal"
+      aria-expanded="false"
+    >
+      화장실 이용법
+    </button>
+  </div>
+
+  <div
+    class="modal-backdrop"
+    id="restroom-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="restroom-title"
+    hidden
+  >
+    <div class="modal-container" tabindex="-1">
+      <button type="button" class="modal-close" id="restroom-modal-close">닫기</button>
+      <h2 class="modal-title" id="restroom-title">화장실 이용 방법</h2>
+      <ol class="modal-steps" id="restroom-steps"></ol>
+      <img
+        src="src/image/restroom.PNG"
+        alt="화장실 이용 방법 안내 이미지"
+        class="modal-image"
+        id="restroom-image"
+      />
+    </div>
+  </div>
 
   <script>
     // 가이드 데이터
@@ -220,6 +363,18 @@
       ko: {
         title: "이용 안내",
         menuButtonLabel: "메뉴판 보기",
+        restroom: {
+          buttonLabel: "화장실 이용법",
+          title: "화장실 이용 방법",
+          steps: [
+            "단말기 앞에 서 주세요.",
+            "손바닥으로 화면을 깨워 주세요.",
+            "비밀번호를 입력해 주세요. (3 6 9 0 *)",
+            "문이 열리면 들어가 주세요."
+          ],
+          closeLabel: "닫기",
+          imageAlt: "화장실 이용 방법 4컷 안내 이미지"
+        },
         sections: [
           {
             title: "어린이",
@@ -255,6 +410,18 @@
       en: {
         title: "Information",
         menuButtonLabel: "View Menu",
+        restroom: {
+          buttonLabel: "Restroom Guide",
+          title: "How to Use the Restroom",
+          steps: [
+            "Stand in front of the terminal.",
+            "Wake the screen with your palm.",
+            "Enter the passcode (3 6 9 0 *).",
+            "Enter once the door opens."
+          ],
+          closeLabel: "Close",
+          imageAlt: "Four-panel illustration explaining restroom access steps"
+        },
         sections: [
           {
             title: "Children",
@@ -290,6 +457,18 @@
       ja: {
         title: "ご利用案内",
         menuButtonLabel: "メニューを見る",
+        restroom: {
+          buttonLabel: "トイレの使い方",
+          title: "トイレの利用手順",
+          steps: [
+            "端末の前に立ってください。",
+            "手のひらで画面を起こしてください。",
+            "暗証番号（3 6 9 0 *）を入力してください。",
+            "扉が開いたらお入りください。"
+          ],
+          closeLabel: "閉じる",
+          imageAlt: "トイレの利用方法を説明する4コマイラスト"
+        },
         sections: [
           {
             title: "お子様",
@@ -325,6 +504,18 @@
       zh: {
         title: "使用指南",
         menuButtonLabel: "查看菜单",
+        restroom: {
+          buttonLabel: "洗手间使用",
+          title: "洗手间使用方法",
+          steps: [
+            "请站在终端前。",
+            "用手掌唤醒屏幕。",
+            "输入密码（3 6 9 0 *）。",
+            "门打开后即可进入。"
+          ],
+          closeLabel: "关闭",
+          imageAlt: "四格漫画形式的洗手间使用步骤说明图"
+        },
         sections: [
           {
             title: "儿童",
@@ -362,6 +553,13 @@
     const STORAGE_KEY = 'lilliputPreferredLang';
     const LANGUAGE_FALLBACK = 'en';
     const fallbackMenuLabel = guideData[LANGUAGE_FALLBACK]?.menuButtonLabel || 'View Menu';
+    const fallbackRestroomData = guideData[LANGUAGE_FALLBACK]?.restroom || {
+      buttonLabel: 'Restroom Guide',
+      title: 'How to Use the Restroom',
+      steps: [],
+      closeLabel: 'Close',
+      imageAlt: '',
+    };
 
     // 브라우저 언어 감지
     const detectLanguage = () => {
@@ -394,9 +592,121 @@
 
     // 현재 언어 상태
     let currentLang = loadPreferredLanguage();
+    let currentRestroomContent = fallbackRestroomData;
     const langButtonsContainer = document.querySelector('.lang-buttons');
     const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
-    const menuButton = document.querySelector('.menu-btn');
+    const menuButton = document.getElementById('menu-btn');
+    const restroomButton = document.getElementById('restroom-btn');
+    const restroomModal = document.getElementById('restroom-modal');
+    const restroomModalContainer = restroomModal?.querySelector('.modal-container');
+    const restroomCloseButton = document.getElementById('restroom-modal-close');
+    const restroomTitleElement = document.getElementById('restroom-title');
+    const restroomStepsElement = document.getElementById('restroom-steps');
+    const restroomImageElement = document.getElementById('restroom-image');
+    let isRestroomModalOpen = false;
+    let lastFocusedElement = null;
+
+    function renderRestroomGuide(restroomData) {
+      const base = fallbackRestroomData;
+      const active = Object.assign({}, base, restroomData || {});
+      currentRestroomContent = active;
+
+      if (restroomButton) {
+        const label = active.buttonLabel || base.buttonLabel || '';
+        restroomButton.textContent = label;
+        restroomButton.setAttribute('aria-label', label);
+        restroomButton.setAttribute('aria-expanded', String(isRestroomModalOpen));
+      }
+
+      if (restroomTitleElement) {
+        restroomTitleElement.textContent = active.title || base.title || '';
+      }
+
+      if (restroomStepsElement) {
+        restroomStepsElement.innerHTML = '';
+        const steps = Array.isArray(active.steps) && active.steps.length ? active.steps : base.steps || [];
+        steps.forEach(step => {
+          const li = document.createElement('li');
+          li.textContent = step;
+          restroomStepsElement.appendChild(li);
+        });
+      }
+
+      if (restroomCloseButton) {
+        const closeLabel = active.closeLabel || base.closeLabel || 'Close';
+        restroomCloseButton.textContent = closeLabel;
+        restroomCloseButton.setAttribute('aria-label', closeLabel);
+      }
+
+      if (restroomImageElement) {
+        const altText = active.imageAlt || base.imageAlt || '';
+        if (altText) {
+          restroomImageElement.setAttribute('alt', altText);
+        } else {
+          restroomImageElement.removeAttribute('alt');
+        }
+      }
+    }
+
+    function openRestroomModal() {
+      if (!restroomModal || isRestroomModalOpen) return;
+      isRestroomModalOpen = true;
+      lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      restroomModal.hidden = false;
+      document.body.classList.add('modal-open');
+      renderRestroomGuide(currentRestroomContent);
+      setTimeout(() => {
+        if (restroomModalContainer) {
+          restroomModalContainer.focus();
+        } else if (restroomCloseButton) {
+          restroomCloseButton.focus();
+        }
+      }, 0);
+    }
+
+    function closeRestroomModal() {
+      if (!restroomModal || !isRestroomModalOpen) return;
+      isRestroomModalOpen = false;
+      restroomModal.hidden = true;
+      document.body.classList.remove('modal-open');
+      renderRestroomGuide(currentRestroomContent);
+      const focusTarget = lastFocusedElement && typeof lastFocusedElement.focus === 'function'
+        ? lastFocusedElement
+        : restroomButton;
+      if (focusTarget && typeof focusTarget.focus === 'function') {
+        focusTarget.focus();
+      }
+    }
+
+    function handleModalKeydown(event) {
+      if (event.key === 'Escape' && isRestroomModalOpen) {
+        closeRestroomModal();
+      }
+    }
+
+    function setupRestroomInteraction() {
+      if (restroomButton) {
+        restroomButton.addEventListener('click', () => {
+          openRestroomModal();
+        });
+      }
+
+      if (restroomCloseButton) {
+        restroomCloseButton.addEventListener('click', () => {
+          closeRestroomModal();
+        });
+      }
+
+      if (restroomModal) {
+        restroomModal.addEventListener('click', event => {
+          if (event.target === restroomModal) {
+            closeRestroomModal();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', handleModalKeydown);
+    }
 
     // 페이지 렌더링
     function render() {
@@ -414,6 +724,7 @@
         menuButton.textContent = menuLabel;
         menuButton.setAttribute('aria-label', menuLabel);
       }
+      renderRestroomGuide(data.restroom);
       
       // 섹션들 렌더링
       const sectionsContainer = document.getElementById('sections');
@@ -472,6 +783,7 @@
 
     // 초기 렌더링
     render();
+    setupRestroomInteraction();
   </script>
 </body>
 </html>
