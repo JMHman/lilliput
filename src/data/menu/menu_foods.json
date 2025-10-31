@@ -3,7 +3,7 @@
     "category": "PASTA",
     "name_en": "Spaghetti alla Carbonara",
     "name_ko": "까르보나라",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "크림소스",
       "스파게티니",
@@ -15,13 +15,14 @@
     ],
     "notes": "",
     "name_ja": "カルボナーラ",
-    "name_zh": "卡博纳拉意面"
+    "name_zh": "卡博纳拉意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Bolognese Lasagna",
     "name_ko": "라자냐",
-    "price": 25.0,
+    "price": 25,
     "ingredients": [
       "라자냐면",
       "소고기",
@@ -34,7 +35,8 @@
     ],
     "notes": "",
     "name_ja": "ボロネーゼラザニア",
-    "name_zh": "肉酱千层面"
+    "name_zh": "肉酱千层面",
+    "is_new": false
   },
   {
     "category": "PASTA",
@@ -52,13 +54,14 @@
     ],
     "notes": "",
     "name_ja": "アーリオ・オーリオパスタ",
-    "name_zh": "蒜香橄榄油意面"
+    "name_zh": "蒜香橄榄油意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Beef Cream Pasta",
     "name_ko": "만조 파스타",
-    "price": 25.0,
+    "price": 25,
     "ingredients": [
       "살치살",
       "고르곤치즈",
@@ -71,13 +74,14 @@
     ],
     "notes": "",
     "name_ja": "ビーフクリームパスタ",
-    "name_zh": "牛肉奶油意面"
+    "name_zh": "牛肉奶油意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Bacon Tomato Pasta",
     "name_ko": "베이컨 토마토 파스타",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "베이컨",
       "토마토",
@@ -90,13 +94,14 @@
     ],
     "notes": "",
     "name_ja": "ベーコントマトパスタ",
-    "name_zh": "培根番茄意面"
+    "name_zh": "培根番茄意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Spaghetti alle Vongole",
     "name_ko": "봉골레",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "오일소스",
       "스파게티니",
@@ -108,13 +113,14 @@
     ],
     "notes": "",
     "name_ja": "ボンゴレパスタ",
-    "name_zh": "蛤蜊意面"
+    "name_zh": "蛤蜊意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Shrimp Basil Cream Pasta",
     "name_ko": "쉬림프 바질크림 파스타",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "바질페스토",
       "크림소스",
@@ -125,13 +131,14 @@
     ],
     "notes": "",
     "name_ja": "海老とバジルのクリームパスタ",
-    "name_zh": "虾仁罗勒奶油意面"
+    "name_zh": "虾仁罗勒奶油意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Amatriciana",
     "name_ko": "아마트리치아나",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "베이컨",
       "페파로니",
@@ -142,13 +149,14 @@
     ],
     "notes": "",
     "name_ja": "アマトリチャーナ",
-    "name_zh": "阿马特里恰纳意面"
+    "name_zh": "阿马特里恰纳意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Avocado Pollack Roe Pasta",
     "name_ko": "아보카도 명란 파스타",
-    "price": 24.0,
+    "price": 24,
     "ingredients": [
       "크림소스",
       "스파게티니",
@@ -159,13 +167,14 @@
     ],
     "notes": "",
     "name_ja": "アボカド明太子パスタ",
-    "name_zh": "牛油果明太子意面"
+    "name_zh": "牛油果明太子意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Gamberi Rose Sauce with Flying Fish Roe Pasta",
     "name_ko": "왕새우 로제 파스타",
-    "price": 24.0,
+    "price": 24,
     "ingredients": [
       "로제소스",
       "스파게티니",
@@ -176,13 +185,14 @@
     ],
     "notes": "",
     "name_ja": "ガンベリロゼソースパスタ（とびこ入り）",
-    "name_zh": "大虾飞鱼子玫瑰酱意面"
+    "name_zh": "大虾飞鱼子玫瑰酱意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Truffle Mushroom Pasta",
     "name_ko": "트러플 머쉬룸 파스타",
-    "price": 24.0,
+    "price": 24,
     "ingredients": [
       "크림소스",
       "스파게티니",
@@ -193,13 +203,14 @@
     ],
     "notes": "",
     "name_ja": "トリュフマッシュルームパスタ",
-    "name_zh": "松露蘑菇意面"
+    "name_zh": "松露蘑菇意面",
+    "is_new": false
   },
   {
     "category": "PASTA",
     "name_en": "Seafood Pasta with Tomato Sauce",
     "name_ko": "해산물 토마토 파스타",
-    "price": 24.0,
+    "price": 24,
     "ingredients": [
       "토마토 소스",
       "스파게티니",
@@ -210,13 +221,14 @@
     ],
     "notes": "",
     "name_ja": "シーフードトマトパスタ",
-    "name_zh": "海鲜番茄意面"
+    "name_zh": "海鲜番茄意面",
+    "is_new": false
   },
   {
     "category": "PIZZA",
     "name_en": "Royal Pepperoni Pizza",
     "name_ko": "로얄 페퍼로니 피자",
-    "price": 24.0,
+    "price": 24,
     "ingredients": [
       "페퍼로니햄",
       "토마토 소스",
@@ -224,7 +236,8 @@
     ],
     "notes": "",
     "name_ja": "ロイヤルペパロニピザ",
-    "name_zh": "皇家意式辣香肠披萨"
+    "name_zh": "皇家意式辣香肠披萨",
+    "is_new": false
   },
   {
     "category": "PIZZA",
@@ -241,13 +254,14 @@
     ],
     "notes": "",
     "name_ja": "ルッコラカプレーゼピザ",
-    "name_zh": "芝麻菜卡普雷塞披萨"
+    "name_zh": "芝麻菜卡普雷塞披萨",
+    "is_new": false
   },
   {
     "category": "PIZZA",
     "name_en": "Margherita Pizza",
     "name_ko": "마르게리따 피자",
-    "price": 24.0,
+    "price": 24,
     "ingredients": [
       "토마토 소스",
       "대추 방울 토마토",
@@ -256,13 +270,14 @@
     ],
     "notes": "",
     "name_ja": "マルゲリータピザ",
-    "name_zh": "玛格丽塔披萨"
+    "name_zh": "玛格丽塔披萨",
+    "is_new": false
   },
   {
     "category": "PIZZA",
     "name_en": "Okonomiyaki Pizza",
     "name_ko": "오꼬노미야끼 피자",
-    "price": 25.0,
+    "price": 25,
     "ingredients": [
       "문어",
       "가쓰오부시",
@@ -275,13 +290,14 @@
     ],
     "notes": "",
     "name_ja": "お好み焼きピザ",
-    "name_zh": "大阪烧风披萨"
+    "name_zh": "大阪烧风披萨",
+    "is_new": false
   },
   {
     "category": "PIZZA",
     "name_en": "Italian Cotechino Pizza",
     "name_ko": "이탈리안 코테키노 피자",
-    "price": 24.0,
+    "price": 24,
     "ingredients": [
       "코테키노 소세지",
       "토마토 소스",
@@ -289,13 +305,14 @@
     ],
     "notes": "",
     "name_ja": "イタリアンコテキーノピザ",
-    "name_zh": "意式科泰基诺香肠披萨"
+    "name_zh": "意式科泰基诺香肠披萨",
+    "is_new": false
   },
   {
     "category": "PIZZA",
     "name_en": "Quattro Gorgonzola Pizza",
     "name_ko": "콰트로 고르곤졸라 피자",
-    "price": 25.0,
+    "price": 25,
     "ingredients": [
       "고르곤졸라 치즈",
       "까망베르 치즈",
@@ -306,13 +323,14 @@
     ],
     "notes": "",
     "name_ja": "クアトロゴルゴンゾーラピザ",
-    "name_zh": "四种戈贡佐拉披萨"
+    "name_zh": "四种戈贡佐拉披萨",
+    "is_new": false
   },
   {
     "category": "RICE",
     "name_en": "Bacon Kimchi Fried Rice with Fried Chicken",
     "name_ko": "베이컨 김치볶음밥과 닭튀김",
-    "price": 22.0,
+    "price": 22,
     "ingredients": [
       "김치",
       "돈민찌",
@@ -326,13 +344,14 @@
     ],
     "notes": "",
     "name_ja": "ベーコンキムチチャーハンとフライドチキン",
-    "name_zh": "培根泡菜炒饭配炸鸡"
+    "name_zh": "培根泡菜炒饭配炸鸡",
+    "is_new": false
   },
   {
     "category": "RICE",
     "name_en": "Bulgogi Pilaf",
     "name_ko": "불고기 필라프",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "당근",
       "쥬키니",
@@ -347,13 +366,14 @@
     ],
     "notes": "",
     "name_ja": "プルコギピラフ",
-    "name_zh": "烤肉什锦炒饭"
+    "name_zh": "烤肉什锦炒饭",
+    "is_new": false
   },
   {
     "category": "RICE",
     "name_en": "Crab and Shrimp Pilaf",
     "name_ko": "통새우 게살 필라프",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "통새우",
       "게살",
@@ -368,7 +388,8 @@
     ],
     "notes": "",
     "name_ja": "カニとエビのピラフ",
-    "name_zh": "蟹肉虾仁什锦饭"
+    "name_zh": "蟹肉虾仁什锦饭",
+    "is_new": false
   },
   {
     "category": "RICE",
@@ -376,9 +397,20 @@
     "name_ko": "아보카도 명란 볶음밥",
     "name_ja": "アボカド明太チャーハン",
     "name_zh": "牛油果明太子炒饭",
-    "price": 24.0,
-    "ingredients": ["당근", "쥬키니", "양파", "브로콜리", "명란", "아보카도", "계란", "크림소스", "대추 방울 토마토"],
-    "notes": ""
+    "price": 24,
+    "ingredients": [
+      "당근",
+      "쥬키니",
+      "양파",
+      "브로콜리",
+      "명란",
+      "아보카도",
+      "계란",
+      "크림소스",
+      "대추 방울 토마토"
+    ],
+    "notes": "",
+    "is_new": false
   },
   {
     "category": "RICE",
@@ -386,35 +418,48 @@
     "name_ko": "데리야끼 치킨 감자 리조또",
     "name_ja": "照り焼きチキンとポテトのリゾット",
     "name_zh": "照烧鸡土豆烩饭",
-    "price": 23.0,
-    "ingredients": ["데리야끼 소스", "닭다리살", "감자", "크림소스"],
-    "notes": ""
-  },  
+    "price": 23,
+    "ingredients": [
+      "데리야끼 소스",
+      "닭다리살",
+      "감자",
+      "크림소스"
+    ],
+    "notes": "",
+    "is_new": false
+  },
   {
     "category": "RICE",
     "name_en": "Steamed Rice (with Gim)",
     "name_ko": "공기밥",
-    "price": 3.0,
-    "ingredients": ["밥", "김"],
+    "price": 3,
+    "ingredients": [
+      "밥",
+      "김"
+    ],
     "notes": "",
     "name_ja": "ご飯（韓国のり付き）",
-    "name_zh": "白米饭（附紫菜）"
+    "name_zh": "白米饭（附紫菜）",
+    "is_new": false
   },
   {
     "category": "RICE",
     "name_en": "Extra Gim (Seaweed)",
     "name_ko": "김 추가",
-    "price": 1.0,
-    "ingredients": ["김"],
+    "price": 1,
+    "ingredients": [
+      "김"
+    ],
     "notes": "",
     "name_ja": "韓国のり追加",
-    "name_zh": "加紫菜"
-  },    
+    "name_zh": "加紫菜",
+    "is_new": false
+  },
   {
     "category": "SALAD",
     "name_en": "Burrata Cheese Salad",
     "name_ko": "부라타치즈 샐러드",
-    "price": 21.0,
+    "price": 21,
     "ingredients": [
       "유자드레싱",
       "부라타치즈",
@@ -425,13 +470,14 @@
     ],
     "notes": "",
     "name_ja": "ブッラータチーズサラダ",
-    "name_zh": "布拉塔奶酪沙拉"
+    "name_zh": "布拉塔奶酪沙拉",
+    "is_new": false
   },
   {
     "category": "SALAD",
     "name_en": "Chicken Cobb Salad",
     "name_ko": "치킨 콥 샐러드",
-    "price": 21.0,
+    "price": 21,
     "ingredients": [
       "랜치드레싱",
       "닭가슴살",
@@ -446,13 +492,14 @@
     ],
     "notes": "",
     "name_ja": "チキンコブサラダ",
-    "name_zh": "鸡肉科布沙拉"
+    "name_zh": "鸡肉科布沙拉",
+    "is_new": false
   },
   {
     "category": "SNACKS",
     "name_en": "Spicy Tteokbokki with Assorted Fries",
     "name_ko": "국물 떡볶이와 분식튀김",
-    "price": 22.0,
+    "price": 22,
     "ingredients": [
       "고추장소스",
       "밀떡",
@@ -465,13 +512,14 @@
     ],
     "notes": "",
     "name_ja": "スープトッポッキと揚げ物盛り合わせ",
-    "name_zh": "汤式辣炒年糕配什锦炸物"
+    "name_zh": "汤式辣炒年糕配什锦炸物",
+    "is_new": false
   },
   {
     "category": "SNACKS",
     "name_en": "Bulgogi Royal Soy Tteokbokki",
     "name_ko": "궁중 떡볶이",
-    "price": 22.0,
+    "price": 22,
     "ingredients": [
       "궁중소스",
       "밀떡",
@@ -482,13 +530,14 @@
     ],
     "notes": "",
     "name_ja": "宮中トッポッキ",
-    "name_zh": "宫廷酱油辣炒年糕"
+    "name_zh": "宫廷酱油辣炒年糕",
+    "is_new": false
   },
   {
     "category": "SNACKS",
     "name_en": "Home-made Fried Chicken & French Fries",
     "name_ko": "수제치킨과 감자튀김",
-    "price": 22.0,
+    "price": 22,
     "ingredients": [
       "닭다리살",
       "감자튀김",
@@ -497,13 +546,14 @@
     ],
     "notes": "",
     "name_ja": "自家製フライドチキンとフライドポテト",
-    "name_zh": "自制炸鸡配薯条"
+    "name_zh": "自制炸鸡配薯条",
+    "is_new": false
   },
   {
     "category": "SNACKS",
     "name_en": "Original Crispy Chicken",
     "name_ko": "오리지날 크리스피 치킨",
-    "price": 23.0,
+    "price": 23,
     "ingredients": [
       "닭다리살",
       "레몬",
@@ -511,13 +561,14 @@
     ],
     "notes": "",
     "name_ja": "オリジナルクリスピーチキン",
-    "name_zh": "原味脆皮炸鸡"
+    "name_zh": "原味脆皮炸鸡",
+    "is_new": false
   },
   {
     "category": "SNACKS",
     "name_en": "Seafood Spicy Tteokbokki",
     "name_ko": "해물 떡볶이",
-    "price": 22.0,
+    "price": 22,
     "ingredients": [
       "고추장소스",
       "밀떡",
@@ -529,13 +580,14 @@
     ],
     "notes": "",
     "name_ja": "シーフード辛トッポッキ",
-    "name_zh": "海鲜香辣炒年糕"
+    "name_zh": "海鲜香辣炒年糕",
+    "is_new": false
   },
   {
     "category": "SNACKS",
     "name_en": "Carbonara Tteokbokki",
     "name_ko": "까르보 떡볶이",
-    "price": 22.0,
+    "price": 22,
     "ingredients": [
       "크림소스",
       "베이컨",
@@ -546,13 +598,14 @@
     ],
     "notes": "",
     "name_ja": "カルボナーラトッポッキ",
-    "name_zh": "奶油培根炒年糕"
+    "name_zh": "奶油培根炒年糕",
+    "is_new": true
   },
   {
     "category": "SNACKS",
     "name_en": "Honey Truffle French Fries",
     "name_ko": "허니 트러플 감자튀김",
-    "price": 22.0,
+    "price": 22,
     "ingredients": [
       "허니 버터 소스",
       "트러플 오일",
@@ -561,17 +614,19 @@
     ],
     "notes": "",
     "name_ja": "ハニートリュフポテト",
-    "name_zh": "蜂蜜松露薯条"
+    "name_zh": "蜂蜜松露薯条",
+    "is_new": false
   },
   {
     "category": "SNACKS",
     "name_en": "Tiramisu",
     "name_ko": "티라미수",
-    "price": 12.0,
+    "price": 12,
     "ingredients": [],
     "notes": "",
     "name_ja": "ティラミス",
-    "name_zh": "提拉米苏"
+    "name_zh": "提拉米苏",
+    "is_new": true
   },
   {
     "category": "STEAK",
@@ -592,6 +647,7 @@
     ],
     "notes": "",
     "name_ja": "ハンバーグステーキとサラダ",
-    "name_zh": "汉堡牛排沙拉"
+    "name_zh": "汉堡牛排沙拉",
+    "is_new": false
   }
 ]

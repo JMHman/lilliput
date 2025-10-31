@@ -4,12 +4,13 @@
     "subcategory": "ESPRESSO",
     "name_en": "Americano",
     "name_ko": "아메리카노",
-    "hot_price": 7.0,
+    "hot_price": 7,
     "ice_price": 7.5,
     "single_price": null,
     "notes": "",
     "name_ja": "アメリカーノ",
-    "name_zh": "美式咖啡"
+    "name_zh": "美式咖啡",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -17,11 +18,12 @@
     "name_en": "Cafe Latte",
     "name_ko": "카페 라떼",
     "hot_price": 7.5,
-    "ice_price": 8.0,
+    "ice_price": 8,
     "single_price": null,
     "notes": "",
     "name_ja": "カフェラテ",
-    "name_zh": "拿铁咖啡"
+    "name_zh": "拿铁咖啡",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -29,47 +31,51 @@
     "name_en": "Cappuccino",
     "name_ko": "카푸치노",
     "hot_price": 7.5,
-    "ice_price": 8.0,
+    "ice_price": 8,
     "single_price": null,
     "notes": "",
     "name_ja": "カプチーノ",
-    "name_zh": "卡布奇诺"
+    "name_zh": "卡布奇诺",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "ESPRESSO",
     "name_en": "Vanilla Latte",
     "name_ko": "바닐라라떼",
-    "hot_price": 8.0,
+    "hot_price": 8,
     "ice_price": 8.5,
     "single_price": null,
     "notes": "",
     "name_ja": "バニララテ",
-    "name_zh": "香草拿铁"
+    "name_zh": "香草拿铁",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "ESPRESSO",
     "name_en": "Cafe Mocha",
     "name_ko": "카페 모카",
-    "hot_price": 8.0,
+    "hot_price": 8,
     "ice_price": 8.5,
     "single_price": null,
     "notes": "",
     "name_ja": "カフェモカ",
-    "name_zh": "摩卡咖啡"
+    "name_zh": "摩卡咖啡",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "ESPRESSO",
     "name_en": "Caramel Macchiato",
     "name_ko": "카라멜 마끼아또",
-    "hot_price": 8.0,
+    "hot_price": 8,
     "ice_price": 8.5,
     "single_price": null,
     "notes": "",
     "name_ja": "キャラメルマキアート",
-    "name_zh": "焦糖玛奇朵"
+    "name_zh": "焦糖玛奇朵",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -77,11 +83,12 @@
     "name_en": "Decaffeinated Americano",
     "name_ko": "디카페인 아메리카노",
     "hot_price": 7.5,
-    "ice_price": 8.0,
+    "ice_price": 8,
     "single_price": null,
     "notes": "",
     "name_ja": "デカフェアメリカーノ",
-    "name_zh": "低咖美式"
+    "name_zh": "低咖美式",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -89,11 +96,12 @@
     "name_en": "Decaffeinated Cafe Latte",
     "name_ko": "디카페인 카페라떼",
     "hot_price": 8.5,
-    "ice_price": 9.0,
+    "ice_price": 9,
     "single_price": null,
     "notes": "",
     "name_ja": "デカフェカフェラテ",
-    "name_zh": "低咖拿铁"
+    "name_zh": "低咖拿铁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -102,10 +110,11 @@
     "name_ko": "죠리퐁 라떼",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 8.0,
+    "single_price": 8,
     "notes": "",
     "name_ja": "ジョリポンラテ",
-    "name_zh": "Jolly Pong拿铁"
+    "name_zh": "Jolly Pong拿铁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -117,7 +126,8 @@
     "single_price": 8.5,
     "notes": "",
     "name_ja": "ティラミスラテ",
-    "name_zh": "提拉米苏拿铁"
+    "name_zh": "提拉米苏拿铁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -125,11 +135,12 @@
     "name_en": "Greentea Latte",
     "name_ko": "녹차 라떼",
     "hot_price": 7.5,
-    "ice_price": 8.0,
+    "ice_price": 8,
     "single_price": null,
     "notes": "",
     "name_ja": "抹茶ラテ",
-    "name_zh": "抹茶拿铁"
+    "name_zh": "抹茶拿铁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -137,11 +148,12 @@
     "name_en": "Chocolate Latte",
     "name_ko": "초콜릿 라떼",
     "hot_price": 7.5,
-    "ice_price": 8.0,
+    "ice_price": 8,
     "single_price": null,
     "notes": "",
     "name_ja": "チョコレートラテ",
-    "name_zh": "巧克力拿铁"
+    "name_zh": "巧克力拿铁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -149,11 +161,12 @@
     "name_en": "Royal Milk Tea",
     "name_ko": "로얄 밀크티",
     "hot_price": 7.5,
-    "ice_price": 8.0,
+    "ice_price": 8,
     "single_price": null,
     "notes": "",
     "name_ja": "ロイヤルミルクティー",
-    "name_zh": "皇家奶茶"
+    "name_zh": "皇家奶茶",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -162,22 +175,24 @@
     "name_ko": "딸기 라떼",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 8.0,
+    "single_price": 8,
     "notes": "only Ice",
     "name_ja": "ストロベリーラテ",
-    "name_zh": "草莓拿铁"
+    "name_zh": "草莓拿铁",
+    "is_new": true
   },
   {
     "category": "DRINK",
     "subcategory": "LATTE",
     "name_en": "Sweet Potato Latte",
     "name_ko": "고구마 라떼",
-    "hot_price": 8.0,
-    "ice_price": 8.0,
+    "hot_price": 8,
+    "ice_price": 8,
     "single_price": null,
     "notes": "",
     "name_ja": "さつまいもラテ",
-    "name_zh": "红薯拿铁"
+    "name_zh": "红薯拿铁",
+    "is_new": true
   },
   {
     "category": "DRINK",
@@ -186,10 +201,11 @@
     "name_ko": "더치 아메리카노",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 7.0,
+    "single_price": 7,
     "notes": "",
     "name_ja": "ダッチアメリカーノ",
-    "name_zh": "冷萃美式"
+    "name_zh": "冷萃美式",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -201,7 +217,8 @@
     "single_price": 8.5,
     "notes": "",
     "name_ja": "ダッチキューブラテ",
-    "name_zh": "冷萃冰块拿铁"
+    "name_zh": "冷萃冰块拿铁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -210,10 +227,11 @@
     "name_ko": "플레인 요거트 릴리치노",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 8.0,
+    "single_price": 8,
     "notes": "",
     "name_ja": "プレーンヨーグルト リリーシーノ",
-    "name_zh": "原味酸奶Lilly-ccino"
+    "name_zh": "原味酸奶Lilly-ccino",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -225,7 +243,8 @@
     "single_price": 8.5,
     "notes": "",
     "name_ja": "ストロベリーヨーグルト リリーシーノ",
-    "name_zh": "草莓酸奶Lilly-ccino"
+    "name_zh": "草莓酸奶Lilly-ccino",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -237,7 +256,8 @@
     "single_price": 8.5,
     "notes": "",
     "name_ja": "ブルーベリーヨーグルト リリーシーノ",
-    "name_zh": "蓝莓酸奶Lilly-ccino"
+    "name_zh": "蓝莓酸奶Lilly-ccino",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -249,7 +269,8 @@
     "single_price": 8.5,
     "notes": "Natalie’s fresh juice",
     "name_ja": "グレープフルーツジュース",
-    "name_zh": "西柚汁"
+    "name_zh": "西柚汁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -261,7 +282,8 @@
     "single_price": 8.5,
     "notes": "Natalie’s fresh juice",
     "name_ja": "オレンジジュース",
-    "name_zh": "橙汁"
+    "name_zh": "橙汁",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -273,7 +295,8 @@
     "single_price": 8.5,
     "notes": "only Ice",
     "name_ja": "グレープフルーツソーダ",
-    "name_zh": "西柚苏打"
+    "name_zh": "西柚苏打",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -285,7 +308,8 @@
     "single_price": 8.5,
     "notes": "only Ice",
     "name_ja": "レモンソーダ",
-    "name_zh": "柠檬苏打"
+    "name_zh": "柠檬苏打",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -297,7 +321,8 @@
     "single_price": 8.5,
     "notes": "only Ice",
     "name_ja": "ユジャソーダ",
-    "name_zh": "柚子苏打"
+    "name_zh": "柚子苏打",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -309,43 +334,47 @@
     "single_price": 8.5,
     "notes": "only Ice",
     "name_ja": "ライムソーダ",
-    "name_zh": "青柠苏打"
+    "name_zh": "青柠苏打",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "FRUIT TEA",
     "name_en": "Grapefruit Tea",
     "name_ko": "자몽 차",
-    "hot_price": 7.0,
+    "hot_price": 7,
     "ice_price": 7.5,
     "single_price": null,
     "notes": "",
     "name_ja": "グレープフルーツティー",
-    "name_zh": "西柚茶"
+    "name_zh": "西柚茶",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "FRUIT TEA",
     "name_en": "Lemon Tea",
     "name_ko": "레몬 차",
-    "hot_price": 7.0,
+    "hot_price": 7,
     "ice_price": 7.5,
     "single_price": null,
     "notes": "",
     "name_ja": "レモンティー",
-    "name_zh": "柠檬茶"
+    "name_zh": "柠檬茶",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "FRUIT TEA",
     "name_en": "Citron Tea",
     "name_ko": "유자 차",
-    "hot_price": 7.0,
+    "hot_price": 7,
     "ice_price": 7.5,
     "single_price": null,
     "notes": "",
     "name_ja": "ユジャ茶",
-    "name_zh": "柚子茶"
+    "name_zh": "柚子茶",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -357,7 +386,8 @@
     "single_price": 7.5,
     "notes": "only Ice",
     "name_ja": "ピーチアイスティー",
-    "name_zh": "蜜桃冰茶"
+    "name_zh": "蜜桃冰茶",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -369,7 +399,8 @@
     "single_price": 8.5,
     "notes": "only Ice",
     "name_ja": "エスプレッソ入りピーチアイスティー",
-    "name_zh": "蜜桃冰茶加浓缩"
+    "name_zh": "蜜桃冰茶加浓缩",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -381,8 +412,9 @@
     "single_price": 8.5,
     "notes": "only Ice",
     "name_ja": "サンセット（ゆず・ハイビスカス）",
-    "name_zh": "日落（柚子木槿）"
-  },  
+    "name_zh": "日落（柚子木槿）",
+    "is_new": false
+  },
   {
     "category": "DRINK",
     "subcategory": "OTHER BEVERAGE",
@@ -393,7 +425,8 @@
     "single_price": 6.5,
     "notes": "Excluded from 1인 1주문",
     "name_ja": "スパークリングウォーター",
-    "name_zh": "气泡水"
+    "name_zh": "气泡水",
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -405,55 +438,60 @@
     "single_price": 4.5,
     "notes": "Excluded from 1인 1주문",
     "name_ja": "ソフトドリンク",
-    "name_zh": "软饮"
+    "name_zh": "软饮",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "TEA",
     "name_en": "Marco Polo (Black)",
     "name_ko": "마르코 폴로",
-    "hot_price": 8.0,
+    "hot_price": 8,
     "ice_price": 8.5,
     "single_price": null,
     "notes": "Mariage Frères",
     "name_ja": "マルコポーロ（紅茶）",
-    "name_zh": "马可波罗红茶"
+    "name_zh": "马可波罗红茶",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "TEA",
     "name_en": "Wedding Imperial (Black)",
     "name_ko": "웨딩 임페리얼",
-    "hot_price": 8.0,
+    "hot_price": 8,
     "ice_price": 8.5,
     "single_price": null,
     "notes": "Mariage Frères",
     "name_ja": "ウェディングインペリアル（紅茶）",
-    "name_zh": "婚礼帝国红茶"
+    "name_zh": "婚礼帝国红茶",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "TEA",
     "name_en": "Casablanca (Black+Green, Mint)",
     "name_ko": "카사블랑카",
-    "hot_price": 8.0,
+    "hot_price": 8,
     "ice_price": 8.5,
     "single_price": null,
     "notes": "Mariage Frères",
     "name_ja": "カサブランカ（紅茶＋緑茶・ミント）",
-    "name_zh": "卡萨布兰卡红绿茶（薄荷）"
+    "name_zh": "卡萨布兰卡红绿茶（薄荷）",
+    "is_new": false
   },
   {
     "category": "DRINK",
     "subcategory": "TEA",
     "name_en": "Rooibos Tea",
     "name_ko": "루이보스티",
-    "hot_price": 8.0,
+    "hot_price": 8,
     "ice_price": 8.5,
     "single_price": null,
     "notes": "Mariage Frères, caffeine-free",
     "name_ja": "ルイボスティー",
-    "name_zh": "南非博士茶"
+    "name_zh": "南非博士茶",
+    "is_new": false
   },
   {
     "category": "ALCOHOL",
@@ -462,10 +500,11 @@
     "name_ko": "호가든",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 10.0,
+    "single_price": 10,
     "notes": "",
     "name_ja": "ヒューガルデン",
-    "name_zh": "福佳啤酒"
+    "name_zh": "福佳啤酒",
+    "is_new": false
   },
   {
     "category": "ALCOHOL",
@@ -474,10 +513,11 @@
     "name_ko": "테라",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 10.0,
+    "single_price": 10,
     "notes": "Lager 4.6%",
     "name_ja": "テラ（330ml）",
-    "name_zh": "Terra啤酒（330ml）"
+    "name_zh": "Terra啤酒（330ml）",
+    "is_new": false
   },
   {
     "category": "ALCOHOL",
@@ -486,10 +526,11 @@
     "name_ko": "기네스",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 14.0,
+    "single_price": 14,
     "notes": "",
     "name_ja": "ギネス",
-    "name_zh": "健力士啤酒"
+    "name_zh": "健力士啤酒",
+    "is_new": false
   },
   {
     "category": "ALCOHOL",
@@ -498,10 +539,11 @@
     "name_ko": "웨스트 와일더 화이트",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 12.0,
+    "single_price": 12,
     "notes": "13%",
     "name_ja": "ウエストワイルダー ホワイト（250ml）",
-    "name_zh": "West Wilder白葡萄酒（250ml）"
+    "name_zh": "West Wilder白葡萄酒（250ml）",
+    "is_new": false
   },
   {
     "category": "ALCOHOL",
@@ -510,10 +552,11 @@
     "name_ko": "웨스트 와일더 스파클링 로제",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 12.0,
+    "single_price": 12,
     "notes": "13%",
     "name_ja": "ウエストワイルダー スパークリングロゼ（250ml）",
-    "name_zh": "West Wilder起泡桃红（250ml）"
+    "name_zh": "West Wilder起泡桃红（250ml）",
+    "is_new": false
   },
   {
     "category": "ALCOHOL",
@@ -522,9 +565,10 @@
     "name_ko": "웨스트 와일더 카베르네 쇼비뇽",
     "hot_price": null,
     "ice_price": null,
-    "single_price": 12.0,
+    "single_price": 12,
     "notes": "13%",
     "name_ja": "ウエストワイルダー カベルネ・ソーヴィニヨン（250ml）",
-    "name_zh": "West Wilder赤霞珠（250ml）"
+    "name_zh": "West Wilder赤霞珠（250ml）",
+    "is_new": false
   }
 ]
