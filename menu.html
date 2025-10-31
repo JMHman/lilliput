@@ -180,6 +180,9 @@
       padding: 1.2rem 1.4rem;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(179, 92, 56, 0.08);
+      position: relative;
+      overflow: visible;
+      transform-origin: center;
     }
 
     .menu-card-header {
@@ -212,6 +215,45 @@
       flex-wrap: wrap;
       gap: 0.6rem;
       margin-bottom: 0.7rem;
+    }
+
+    .new-badge {
+      position: absolute;
+      top: -1.3rem;
+      left: -1.3rem;
+      width: 68px;
+      height: auto;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+    }
+
+    @keyframes menu-card-shake {
+      0% {
+        transform: rotate(0deg);
+      }
+      15% {
+        transform: rotate(-2deg);
+      }
+      30% {
+        transform: rotate(2deg);
+      }
+      45% {
+        transform: rotate(-1.5deg);
+      }
+      60% {
+        transform: rotate(1.5deg);
+      }
+      75% {
+        transform: rotate(-1deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    .menu-card.new-shake-active {
+      animation: menu-card-shake 1.3s ease-in-out;
     }
 
     .price-tag {
@@ -402,6 +444,7 @@
         back: '이용 안내 보기',
         loading: '메뉴를 불러오는 중입니다...',
         loadError: '메뉴 데이터를 불러오지 못했습니다.',
+        newBadgeAlt: '신메뉴 배지 이미지',
       },
       en: {
         pageTitle: 'Menu',
@@ -415,6 +458,7 @@
         back: 'View Guide',
         loading: 'Loading menu...',
         loadError: 'Unable to load menu data.',
+        newBadgeAlt: 'New menu badge image',
       },
       ja: {
         pageTitle: 'メニュー',
@@ -428,6 +472,7 @@
         back: '案内を見る',
         loading: 'メニューを読み込み中です...',
         loadError: 'メニューデータを読み込めませんでした。',
+        newBadgeAlt: '新メニューを示すバッジ画像',
       },
       zh: {
         pageTitle: '菜单',
@@ -441,6 +486,7 @@
         back: '查看指南',
         loading: '正在载入菜单…',
         loadError: '无法载入菜单数据。',
+        newBadgeAlt: '新品徽章图像',
       },
     };
 
@@ -471,7 +517,27 @@
     };
 
     const STORAGE_KEY = 'lilliputPreferredLang';
-    const WEEKEND_ONLY_FOOD_NAMES = new Set(['tiramisu', '티라미수', 'ティラミス', '提拉米苏']);
+    const WEEKEND_ONLY_FOOD_NAMES = new Set([
+      'tiramisu',
+      '티라미수',
+      'ティラミス',
+      '提拉米苏',
+    ]);
+
+    const WEEKDAY_ONLY_FOOD_NAMES = new Set([
+      'teriyaki chicken potato risotto',
+      '데리야끼 치킨 감자 리조또',
+      '照り焼きチキンとポテトのリゾット',
+      '照烧鸡土豆烩饭',
+      'chicken cobb salad',
+      '치킨 콥 샐러드',
+      'チキンコブサラダ',
+      '鸡肉科布沙拉',
+    ]);
+    const NEW_BADGE_ANIMATION_MS = 1300;
+    const NEW_BADGE_COOLDOWN_MS = 10000;
+    let newBadgeObserver = null;
+    const newBadgeLastTriggered = new WeakMap();
 
     const state = {
       menu: { foods: [], drinks: [] },
@@ -514,14 +580,74 @@
       );
     }
 
-    function filterWeekendLimitedFoods(items) {
+    function isWeekdayOnlyFood(item) {
+      if (!item || typeof item !== 'object') {
+        return false;
+      }
+      const names = [item.name_en, item.name_ko, item.name_ja, item.name_zh];
+      return names.some(
+        name => typeof name === 'string' && WEEKDAY_ONLY_FOOD_NAMES.has(name.trim().toLowerCase()),
+      );
+    }
+
+    function filterTimeLimitedFoods(items) {
       if (!Array.isArray(items)) {
         return [];
       }
-      if (isWeekendInSeoul()) {
-        return items;
+      const weekend = isWeekendInSeoul();
+      return items.filter(item => {
+        if (weekend && isWeekdayOnlyFood(item)) {
+          return false;
+        }
+        if (!weekend && isWeekendOnlyFood(item)) {
+          return false;
+        }
+        return true;
+      });
+    }
+
+    function triggerNewBadgeAnimation(card) {
+      card.classList.remove('new-shake-active');
+      // reflow to restart animation
+      void card.offsetWidth;
+      card.classList.add('new-shake-active');
+      setTimeout(() => {
+        card.classList.remove('new-shake-active');
+      }, NEW_BADGE_ANIMATION_MS);
+    }
+
+    function handleNewBadgeIntersection(entries) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        const card = entry.target;
+        const now = Date.now();
+        const last = newBadgeLastTriggered.get(card) || 0;
+        if (last && now - last < NEW_BADGE_COOLDOWN_MS) {
+          return;
+        }
+        newBadgeLastTriggered.set(card, now);
+        triggerNewBadgeAnimation(card);
+      });
+    }
+
+    function getNewBadgeObserver() {
+      if (!newBadgeObserver) {
+        newBadgeObserver = new IntersectionObserver(handleNewBadgeIntersection, {
+          threshold: 0.45,
+        });
       }
-      return items.filter(item => !isWeekendOnlyFood(item));
+      return newBadgeObserver;
+    }
+
+    function setupNewBadgeObserver() {
+      const observer = getNewBadgeObserver();
+      observer.disconnect();
+      const cards = document.querySelectorAll('.menu-card[data-new="true"]');
+      cards.forEach(card => {
+        observer.observe(card);
+      });
     }
 
     function detectLanguage() {
@@ -742,6 +868,21 @@
       filtered.forEach(item => {
         const card = document.createElement('div');
         card.className = 'menu-card';
+        const isNewItem = Boolean(item.is_new);
+        if (isNewItem) {
+          card.dataset.new = 'true';
+        } else {
+          card.dataset.new = 'false';
+        }
+
+        if (isNewItem) {
+          const badge = document.createElement('img');
+          badge.src = 'src/image/new.png';
+          badge.alt = text.newBadgeAlt || 'New menu';
+          badge.className = 'new-badge';
+          badge.loading = 'lazy';
+          card.appendChild(badge);
+        }
 
         const header = document.createElement('div');
         header.className = 'menu-card-header';
@@ -837,6 +978,7 @@
       renderTypeChips();
       renderSubcategoryChips();
       renderMenuCards();
+      setupNewBadgeObserver();
     }
 
     async function loadMenuData() {
@@ -855,7 +997,7 @@
         const drinks = await drinksRes.json();
 
         const foodsArray = Array.isArray(foods) ? foods : [];
-        state.menu.foods = filterWeekendLimitedFoods(foodsArray);
+        state.menu.foods = filterTimeLimitedFoods(foodsArray);
         state.menu.drinks = Array.isArray(drinks) ? drinks : [];
       } catch (error) {
         console.error(error);
@@ -878,5 +1020,9 @@
 
     document.addEventListener('DOMContentLoaded', init);
   </script>
+
+  <footer style="font-size:0.8rem; color:#999; text-align:center; margin-top:40px;">
+    © Lilliput Cheongdam · 본 사이트는 쿠키 및 로컬 저장소를 기능 제공 목적으로만 사용합니다.
+  </footer>
 </body>
 </html>
