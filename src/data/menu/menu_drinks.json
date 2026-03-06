@@ -181,19 +181,6 @@
     "name_zh": "草莓拿铁",
     "is_new": true
   },
-  /* {
-    "category": "DRINK",
-    "subcategory": "LATTE",
-    "name_en": "Sweet Potato Latte",
-    "name_ko": "고구마 라떼",
-    "hot_price": 8,
-    "ice_price": 8,
-    "single_price": null,
-    "notes": "",
-    "name_ja": "さつまいもラテ",
-    "name_zh": "红薯拿铁",
-    "is_new": true
-  }, */
   {
     "category": "DRINK",
     "subcategory": "COLD BREW",
