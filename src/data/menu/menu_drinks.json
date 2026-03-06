@@ -181,7 +181,7 @@
     "name_zh": "草莓拿铁",
     "is_new": true
   },
-  {
+  /* {
     "category": "DRINK",
     "subcategory": "LATTE",
     "name_en": "Sweet Potato Latte",
@@ -193,7 +193,7 @@
     "name_ja": "さつまいもラテ",
     "name_zh": "红薯拿铁",
     "is_new": true
-  },
+  }, */
   {
     "category": "DRINK",
     "subcategory": "COLD BREW",
