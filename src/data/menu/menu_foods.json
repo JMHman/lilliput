@@ -618,17 +618,6 @@
     "is_new": false
   },
   {
-    "category": "SNACKS",
-    "name_en": "Tiramisu",
-    "name_ko": "티라미수",
-    "price": 12,
-    "ingredients": [],
-    "notes": "",
-    "name_ja": "ティラミス",
-    "name_zh": "提拉米苏",
-    "is_new": true
-  },
-  {
     "category": "STEAK",
     "name_en": "Hamburg Steak and Salad",
     "name_ko": "함박스테이크와 샐러드",
