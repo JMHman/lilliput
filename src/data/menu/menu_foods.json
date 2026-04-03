@@ -225,6 +225,30 @@
     "is_new": false
   },
   {
+    "category": "PASTA",
+    "subcategory": "SOUP",
+    "name_en": "Red Jjamppong Pasta",
+    "name_ko": "홍짬뽕 파스타",
+    "price": 24.0,
+    "ingredients": [],
+    "notes": "Spicy seafood broth pasta",
+    "name_ja": "赤ちゃんぽんパスタ",
+    "name_zh": "红汤辣海鲜意面",
+    "is_new": false
+  },
+  {
+    "category": "PASTA",
+    "subcategory": "SOUP",
+    "name_en": "White Jjamppong Pasta",
+    "name_ko": "백짬뽕 파스타",
+    "price": 24.0,
+    "ingredients": [],
+    "notes": "Spicy, Nagasaki-style seafood broth pasta",
+    "name_ja": "白ちゃんぽんパスタ",
+    "name_zh": "白汤辣海鲜意面",
+    "is_new": false
+  }
+  {
     "category": "PIZZA",
     "name_en": "Royal Pepperoni Pizza",
     "name_ko": "로얄 페퍼로니 피자",
