@@ -248,6 +248,19 @@
   },
   {
     "category": "DRINK",
+    "subcategory": "SMOOTHIE",
+    "name_en": "Red Bean Smoothie",
+    "name_ko": "팥빙스무디",
+    "hot_price": null,
+    "ice_price": null,
+    "single_price": 8.5,
+    "notes": "only Ice",
+    "name_ja": "あずきスムージー",
+    "name_zh": "红豆冰沙",
+    "is_new": false
+  }
+  {
+    "category": "DRINK",
     "subcategory": "FRESH JUICE",
     "name_en": "Grapefruit Juice",
     "name_ko": "자몽 주스",
@@ -324,6 +337,19 @@
     "name_zh": "青柠苏打",
     "is_new": false
   },
+  {
+    "category": "DRINK",
+    "subcategory": "SODA",
+    "name_en": "Strawberry Lemon Soda",
+    "name_ko": "딸기 레몬 소다",
+    "hot_price": null,
+    "ice_price": null,
+    "single_price": 8.5,
+    "notes": "only Ice",
+    "name_ja": "ストロベリーレモンソーダ",
+    "name_zh": "草莓柠檬苏打",
+    "is_new": false
+  }
   {
     "category": "DRINK",
     "subcategory": "FRUIT TEA",
