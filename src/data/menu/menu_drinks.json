@@ -179,7 +179,7 @@
     "notes": "only Ice",
     "name_ja": "ストロベリーラテ",
     "name_zh": "草莓拿铁",
-    "is_new": true
+    "is_new": false
   },
   {
     "category": "DRINK",
@@ -257,7 +257,7 @@
     "notes": "only Ice",
     "name_ja": "あずきスムージー",
     "name_zh": "红豆冰沙",
-    "is_new": false
+    "is_new": true
   }
   {
     "category": "DRINK",
@@ -348,7 +348,7 @@
     "notes": "only Ice",
     "name_ja": "ストロベリーレモンソーダ",
     "name_zh": "草莓柠檬苏打",
-    "is_new": false
+    "is_new": true
   }
   {
     "category": "DRINK",
