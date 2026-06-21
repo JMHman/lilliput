@@ -453,6 +453,32 @@
     "is_new": false
   },
   {
+    “category”: “RICE”,
+    “name_en”: “Gyudon (Beef Rice Bowl)”,
+    “name_ko”: “규동 (소고기 덮밥)”,
+    “name_ja”: “牛丼”,
+    “name_zh”: “牛丼”,
+    “price”: 18,
+    “ingredients”: [
+      “소고기”
+      ],
+    “notes”: “”,
+    “is_new”: true
+  },
+  {
+    “category”: “RICE”,
+    “name_en”: “Karaage Don (Chicken Rice Bowl)”,
+    “name_ko”: “가라아게동 (닭다리살 덮밥)”,
+    “name_ja”: “唐揚げ丼”,
+    “name_zh”: “唐扬鸡盖饭”,
+    “price”: 18,
+    “ingredients”: [
+      “닭다리살”
+      ],
+    “notes”: “”,
+    “is_new”: true
+  }
+  {
     "category": "RICE",
     "name_en": "Steamed Rice (with Gim)",
     "name_ko": "공기밥",
