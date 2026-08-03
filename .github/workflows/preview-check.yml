@@ -1,0 +1,56 @@
+# 변경 의도: PR과 main 반영 전에 Instagram 버전 2 견본의 필수 파일과 데이터를 자동 검증
+name: preview-check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-instagram-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 소스 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: JavaScript 문법 검사
+        run: node --check instagram-preview.js
+
+      - name: 메뉴 JSON 및 배포 경로 검사
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          required = [
+              Path("개발/청담/버전2/index.html"),
+              Path("개발/청담/버전2/가이드/index.html"),
+              Path("개발/청담/버전2/메뉴/index.html"),
+              Path("instagram-preview.css"),
+              Path("instagram-preview.js"),
+              Path("src/data/menu/menu_foods.json"),
+              Path("src/data/menu/menu_drinks.json"),
+          ]
+          missing = [str(path) for path in required if not path.is_file()]
+          if missing:
+              raise SystemExit(f"필수 파일 누락: {', '.join(missing)}")
+
+          for path in required[-2:]:
+              with path.open(encoding="utf-8") as file:
+                  data = json.load(file)
+              if not isinstance(data, list) or not data:
+                  raise SystemExit(f"메뉴 데이터가 비어 있습니다: {path}")
+
+          for path in required[:3]:
+              html = path.read_text(encoding="utf-8")
+              if 'name="robots" content="noindex,nofollow,noarchive"' not in html:
+                  raise SystemExit(f"검색 제외 설정 누락: {path}")
