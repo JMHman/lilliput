@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- 변경 의도: Instagram 스타일 버전 2 메뉴판을 숨은 개발 경로에서 검토할 수 있게 제공 -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Lilliput Cheongdam — Menu v2</title>
+  <link rel="stylesheet" href="/instagram-preview.css">
+</head>
+<body data-page="menu">
+  <div class="app-shell">
+    <header class="app-header">
+      <a class="wordmark" href="../가이드/" style="color:inherit;text-decoration:none">lilliput.menu</a>
+      <div class="header-actions">
+        <select class="language-select" id="language-select" aria-label="언어 선택">
+          <option value="ko">한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="zh">中文</option>
+        </select>
+        <button class="icon-button" type="button" aria-label="메뉴">☰</button>
+      </div>
+    </header>
+    <main>
+      <section class="menu-toolbar">
+        <div class="type-switch">
+          <button type="button" data-type="foods" aria-pressed="true" data-copy="food">음식</button>
+          <button type="button" data-type="drinks" aria-pressed="false" data-copy="drink">음료</button>
+        </div>
+        <div class="chip-row" id="category-chips"></div>
+      </section>
+      <section class="menu-feed" id="menu-feed" aria-live="polite">
+        <div class="loading" data-copy="loading">메뉴를 불러오는 중입니다…</div>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="하단 메뉴">
+      <a href="../가이드/" aria-label="홈">⌂</a>
+      <a class="active" href="#top" aria-label="메뉴 검색">⌕</a>
+      <a class="active" href="#top" aria-label="메뉴 피드">▣</a>
+      <a href="../가이드/" aria-label="안내">◎</a>
+    </nav>
+  </div>
+  <script src="/instagram-preview.js"></script>
+</body>
+</html>
