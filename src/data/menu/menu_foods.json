@@ -436,22 +436,6 @@
     "notes": "",
     "is_new": false
   },
-  {
-    "category": "RICE",
-    "name_en": "Teriyaki Chicken Potato Risotto",
-    "name_ko": "데리야끼 치킨 감자 리조또",
-    "name_ja": "照り焼きチキンとポテトのリゾット",
-    "name_zh": "照烧鸡土豆烩饭",
-    "price": 23,
-    "ingredients": [
-      "데리야끼 소스",
-      "닭다리살",
-      "감자",
-      "크림소스"
-    ],
-    "notes": "",
-    "is_new": false
-  },
 {
   "category": "RICE",
   "name_en": "Gyudon (Beef Rice Bowl)",
