@@ -462,6 +462,19 @@
   "notes": "",
   "is_new": true
 },
+{
+  "category": "RICE",
+  "name_en": "Ebi Katsu Don (Fried Shrimp Rice Bowl)",
+  "name_ko": "에비카츠동 (새우튀김 덮밥)",
+  "name_ja": "エビカツ丼（エビフライ丼）",
+  "name_zh": "炸虾盖饭",
+  "price": 18,
+  "ingredients": [
+    "새우"
+  ],
+  "notes": "",
+  "is_new": true
+},
   {
     "category": "RICE",
     "name_en": "Steamed Rice (with Gim)",

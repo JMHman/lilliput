@@ -507,6 +507,19 @@
     "is_new": false
   },
   {
+    "category": "DRINK",
+    "subcategory": "TEA",
+    "name_en": "Sujeonggwa (Korean Cinnamon Punch)",
+    "name_ko": "수정과",
+    "hot_price": null,
+    "ice_price": null,
+    "single_price": 7.5,
+    "notes": "only Ice",
+    "name_ja": "スジョングァ（韓国のシナモンドリンク）",
+    "name_zh": "水正果（韩式肉桂饮品）",
+    "is_new": true
+  },
+  {
     "category": "ALCOHOL",
     "subcategory": "BEER",
     "name_en": "Terra (330ml)",
