@@ -120,6 +120,99 @@
       margin-bottom: 0.4rem;
     }
 
+    .admission-section {
+      padding: 1.25rem;
+    }
+
+    .admission-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      color: #3c2a1e;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 0.85rem 0.5rem;
+      border-bottom: 1px solid #eadfd6;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .price-table thead th {
+      color: #7c685c;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .price-table tbody th {
+      width: 34%;
+      text-align: left;
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    .price-table td {
+      font-size: clamp(0.92rem, 3.5vw, 1.08rem);
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .play-time-block {
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 10px;
+      background: #fff5ef;
+      text-align: center;
+    }
+
+    .play-time-label {
+      display: block;
+      color: #7c685c;
+      font-size: 0.85rem;
+      font-weight: 650;
+    }
+
+    .play-time-value {
+      display: block;
+      margin-top: 0.2rem;
+      color: #b35c38;
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .additional-fee-title {
+      margin: 1.2rem 0 0.35rem;
+      color: #3c2a1e;
+      font-size: 1rem;
+    }
+
+    .additional-fee-unit {
+      display: block;
+      margin-top: 0.12rem;
+      color: #7c685c;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .additional-price-table tbody th,
+    .additional-price-table tbody td {
+      border-bottom: 0;
+    }
+
+    @media (max-width: 420px) {
+      .admission-section { padding: 1rem 0.75rem; }
+      .price-table th, .price-table td { padding: 0.75rem 0.25rem; }
+      .price-table thead th { font-size: 0.74rem; }
+      .price-table tbody th { font-size: 0.82rem; }
+      .price-table td { font-size: 0.9rem; }
+    }
+
     .footer {
       text-align: center;
       color: #aaa;
@@ -378,14 +471,21 @@
         },
         sections: [
           {
-            title: "어린이",
-            items: [
-              "기본 이용 시간: 2시간",
-              "평일: 20,000원",
-              "주말·공휴일: 22,000원",
-              "(12개월 미만 아동: 평일 8,000원 / 주말·공휴일 8,800원)",
-              "시간 초과 시: 10분당 평일 2,000원 / 주말·공휴일 2,200원 (12개월 미만 동일)",
+            kind: "admission",
+            title: "입장료",
+            weekdayLabel: "평일",
+            weekendLabel: "주말·공휴일",
+            rows: [
+              { label: "12개월 이상", weekday: "20,000원", weekend: "22,000원" },
+              { label: "12개월 미만", weekday: "8,000원", weekend: "8,800원" },
             ],
+            playTimeLabel: "기본 이용시간",
+            playTimeValue: "2시간",
+            additionalTitle: "추가 이용요금",
+            additionalUnit: "(10분당)",
+            additionalLabel: "추가 시간",
+            additionalWeekday: "2,000원",
+            additionalWeekend: "2,200원",
           },
           {
             title: "성인",
@@ -425,14 +525,21 @@
         },
         sections: [
           {
-            title: "Children",
-            items: [
-              "Basic usage time: 2 hours",
-              "Weekdays: 20,000 KRW",
-              "Weekends & holidays: 22,000 KRW",
-              "(Under 12 months: 8,000 KRW weekdays / 8,800 KRW weekends)",
-              "Overtime: Every 10 min - 2,000 KRW (weekdays), 2,200 KRW (weekends, same for under 12 months)",
+            kind: "admission",
+            title: "Admission",
+            weekdayLabel: "Weekdays",
+            weekendLabel: "Weekends & Holidays",
+            rows: [
+              { label: "12 Months & Over", weekday: "₩20,000", weekend: "₩22,000" },
+              { label: "Under 12 Months", weekday: "₩8,000", weekend: "₩8,800" },
             ],
+            playTimeLabel: "Play Time",
+            playTimeValue: "2 Hours",
+            additionalTitle: "Additional Time",
+            additionalUnit: "(Per 10 Minutes)",
+            additionalLabel: "Additional Time",
+            additionalWeekday: "₩2,000",
+            additionalWeekend: "₩2,200",
           },
           {
             title: "Adults",
@@ -472,14 +579,21 @@
         },
         sections: [
           {
-            title: "お子様",
-            items: [
-              "基本利用時間：2時間",
-              "平日：20,000ウォン",
-              "週末・祝日：22,000ウォン",
-              "（12ヶ月未満のお子様：平日8,000ウォン／週末・祝日8,800ウォン）",
-              "時間超過時：10分ごとに平日2,000ウォン／週末・祝日2,200ウォン（12ヶ月未満も同様）",
+            kind: "admission",
+            title: "入場料金",
+            weekdayLabel: "平日",
+            weekendLabel: "土日・祝日",
+            rows: [
+              { label: "12か月以上", weekday: "20,000ウォン", weekend: "22,000ウォン" },
+              { label: "12か月未満", weekday: "8,000ウォン", weekend: "8,800ウォン" },
             ],
+            playTimeLabel: "基本利用時間",
+            playTimeValue: "2時間",
+            additionalTitle: "延長料金",
+            additionalUnit: "（10分ごと）",
+            additionalLabel: "延長時間",
+            additionalWeekday: "2,000ウォン",
+            additionalWeekend: "2,200ウォン",
           },
           {
             title: "大人",
@@ -519,14 +633,21 @@
         },
         sections: [
           {
-            title: "儿童",
-            items: [
-              "基本使用时间：2小时",
-              "平日：20,000韩元",
-              "周末及节假日：22,000韩元",
-              "（12个月以下儿童：平日8,000韩元 / 周末8,800韩元）",
-              "超时：每10分钟 平日2,000韩元 / 周末2,200韩元（12个月以下同样适用）",
+            kind: "admission",
+            title: "入场费",
+            weekdayLabel: "平日",
+            weekendLabel: "周末及节假日",
+            rows: [
+              { label: "12个月以上", weekday: "₩20,000", weekend: "₩22,000" },
+              { label: "12个月以下", weekday: "₩8,000", weekend: "₩8,800" },
             ],
+            playTimeLabel: "基本使用时间",
+            playTimeValue: "2小时",
+            additionalTitle: "超时费用",
+            additionalUnit: "（每10分钟）",
+            additionalLabel: "超时",
+            additionalWeekday: "₩2,000",
+            additionalWeekend: "₩2,200",
           },
           {
             title: "成人",
@@ -553,6 +674,32 @@
 
     const STORAGE_KEY = 'lilliputPreferredLang';
     const LANGUAGE_FALLBACK = 'en';
+    const businessHoursByLanguage = {
+      ko: {
+        weekdayRegular: '평일: 오전 10:30 ~ 오후 8:30',
+        weekdayShortened: '평일: 오전 10:30 ~ 오후 8:00',
+        weekendRegular: '주말·공휴일: 오전 10:30 ~ 오후 9:00',
+        weekendShortened: '주말·공휴일: 오전 10:30 ~ 오후 8:30',
+      },
+      en: {
+        weekdayRegular: 'Weekdays: 10:30 AM ~ 8:30 PM',
+        weekdayShortened: 'Weekdays: 10:30 AM ~ 8:00 PM',
+        weekendRegular: 'Weekends & Holidays: 10:30 AM ~ 9:00 PM',
+        weekendShortened: 'Weekends & Holidays: 10:30 AM ~ 8:30 PM',
+      },
+      ja: {
+        weekdayRegular: '平日：午前10:30 ～ 午後8:30',
+        weekdayShortened: '平日：午前10:30 ～ 午後8:00',
+        weekendRegular: '週末・祝日：午前10:30 ～ 午後9:00',
+        weekendShortened: '週末・祝日：午前10:30 ～ 午後8:30',
+      },
+      zh: {
+        weekdayRegular: '平日：上午10:30 ~ 下午8:30',
+        weekdayShortened: '平日：上午10:30 ~ 下午8:00',
+        weekendRegular: '周末及节假日：上午10:30 ~ 下午9:00',
+        weekendShortened: '周末及节假日：上午10:30 ~ 下午8:30',
+      },
+    };
     const fallbackMenuLabel = guideData[LANGUAGE_FALLBACK]?.menuButtonLabel || 'View Menu';
     const fallbackRestroomData = guideData[LANGUAGE_FALLBACK]?.restroom || {
       buttonLabel: 'Restroom Guide',
@@ -581,6 +728,23 @@
         console.warn('언어 설정을 불러오지 못했습니다.', error);
       }
       return detectLanguage();
+    };
+
+    // 한국 시간 오후 4시부터 자정 전까지 평일 마감 시간을 오후 8시로 표시
+    const isShortenedBusinessHours = (date = new Date()) => {
+      const hour = Number(new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Seoul',
+        hour: '2-digit',
+        hourCycle: 'h23',
+      }).format(date));
+      return hour >= 16;
+    };
+
+    const getBusinessHoursLabel = (lang, weekend = false) => {
+      const labels = businessHoursByLanguage[lang] || businessHoursByLanguage[LANGUAGE_FALLBACK];
+      const shortened = isShortenedBusinessHours();
+      if (weekend) return shortened ? labels.weekendShortened : labels.weekendRegular;
+      return shortened ? labels.weekdayShortened : labels.weekdayRegular;
     };
 
     const savePreferredLanguage = lang => {
@@ -709,6 +873,71 @@
       document.addEventListener('keydown', handleModalKeydown);
     }
 
+    function createPriceTable(section, rows, extraClass = '') {
+      const table = document.createElement('table');
+      table.className = `price-table ${extraClass}`.trim();
+
+      const thead = document.createElement('thead');
+      const headRow = document.createElement('tr');
+      ['', section.weekdayLabel, section.weekendLabel].forEach((label, index) => {
+        const th = document.createElement('th');
+        th.scope = 'col';
+        th.textContent = label;
+        if (index === 0) th.setAttribute('aria-label', section.title);
+        headRow.appendChild(th);
+      });
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      rows.forEach(row => {
+        const tr = document.createElement('tr');
+        const label = document.createElement('th');
+        label.scope = 'row';
+        label.textContent = row.label;
+        tr.appendChild(label);
+        [row.weekday, row.weekend].forEach(price => {
+          const td = document.createElement('td');
+          td.textContent = price;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      return table;
+    }
+
+    function renderAdmissionSection(sectionDiv, section) {
+      sectionDiv.classList.add('admission-section');
+      sectionDiv.appendChild(createPriceTable(section, section.rows));
+
+      const playTime = document.createElement('div');
+      playTime.className = 'play-time-block';
+      const playTimeLabel = document.createElement('span');
+      playTimeLabel.className = 'play-time-label';
+      playTimeLabel.textContent = section.playTimeLabel;
+      const playTimeValue = document.createElement('strong');
+      playTimeValue.className = 'play-time-value';
+      playTimeValue.textContent = section.playTimeValue;
+      playTime.append(playTimeLabel, playTimeValue);
+      sectionDiv.appendChild(playTime);
+
+      const additionalTitle = document.createElement('h3');
+      additionalTitle.className = 'additional-fee-title';
+      additionalTitle.textContent = section.additionalTitle;
+      const additionalUnit = document.createElement('span');
+      additionalUnit.className = 'additional-fee-unit';
+      additionalUnit.textContent = section.additionalUnit;
+      additionalTitle.appendChild(additionalUnit);
+      sectionDiv.appendChild(additionalTitle);
+
+      sectionDiv.appendChild(createPriceTable(section, [{
+        label: section.additionalLabel,
+        weekday: section.additionalWeekday,
+        weekend: section.additionalWeekend,
+      }], 'additional-price-table'));
+    }
+
     // 페이지 렌더링
     function render() {
       const data = guideData[currentLang] || guideData[LANGUAGE_FALLBACK];
@@ -731,18 +960,28 @@
       const sectionsContainer = document.getElementById('sections');
       sectionsContainer.innerHTML = '';
       
-      data.sections.forEach(section => {
+      data.sections.forEach((section, sectionIndex) => {
         const sectionDiv = document.createElement('div');
         sectionDiv.className = 'section';
         
         const h2 = document.createElement('h2');
         h2.textContent = section.title;
         sectionDiv.appendChild(h2);
+
+        if (section.kind === 'admission') {
+          renderAdmissionSection(sectionDiv, section);
+          sectionsContainer.appendChild(sectionDiv);
+          return;
+        }
         
         const ul = document.createElement('ul');
-        section.items.forEach(item => {
+        section.items.forEach((item, itemIndex) => {
           const li = document.createElement('li');
-          li.textContent = item;
+          if (sectionIndex === 2 && itemIndex < 2) {
+            li.textContent = getBusinessHoursLabel(currentLang, itemIndex === 1);
+          } else {
+            li.textContent = item;
+          }
           ul.appendChild(li);
         });
         sectionDiv.appendChild(ul);
@@ -785,6 +1024,15 @@
     // 초기 렌더링
     render();
     setupRestroomInteraction();
+
+    let lastShortenedBusinessHours = isShortenedBusinessHours();
+    window.setInterval(() => {
+      const nextShortenedBusinessHours = isShortenedBusinessHours();
+      if (nextShortenedBusinessHours !== lastShortenedBusinessHours) {
+        lastShortenedBusinessHours = nextShortenedBusinessHours;
+        render();
+      }
+    }, 60 * 1000);
   </script>
 
   <footer style="font-size:0.8rem; color:#999; text-align:center; margin-top:40px; padding:20px 0;">
