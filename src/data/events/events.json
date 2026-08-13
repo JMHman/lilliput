@@ -1,0 +1,99 @@
+{
+  "change_intent": "운영 가이드에 표시할 이벤트 문구를 언어별로 관리",
+  "events": [
+    {
+      "id": "review-free-kids-drink",
+      "type": "review_reward",
+      "active": true,
+      "translations": {
+        "ko": {
+          "title": "음료 증정 리뷰 이벤트",
+          "description": "온라인에 리뷰를 남겨주시면 아이 1명당 쇼케이스 내 어린이 음료 1개를 무료로 증정해 드려요.",
+          "platforms": "네이버 · 구글 · 야후 · 인스타그램 · 페이스북 등"
+        },
+        "en": {
+          "title": "Free Drink Review Event",
+          "description": "Leave us a review online and receive one free kids’ drink from our showcase per child.",
+          "platforms": "Naver · Google · Yahoo · Instagram · Facebook, etc."
+        },
+        "ja": {
+          "title": "ドリンクプレゼント レビューキャンペーン",
+          "description": "オンラインでレビューを投稿していただくと、お子様1名につき、ショーケース内のキッズドリンクを1本無料でプレゼントいたします。",
+          "platforms": "Naver · Google · Yahoo · Instagram · Facebook など"
+        },
+        "zh": {
+          "title": "评价赠饮活动",
+          "description": "在网上留下评价，即可获得每位儿童1份展示柜内的儿童饮料，免费赠送。",
+          "platforms": "Naver · Google · Yahoo · Instagram · Facebook 等"
+        }
+      }
+    },
+    {
+      "id": "chicken-and-beer-set-special",
+      "type": "set_discount",
+      "active": true,
+      "translations": {
+        "ko": {
+          "title": "치킨 & 비어 세트 할인 이벤트",
+          "description": "치킨 & 감자튀김 + 원하는 맥주 2병을 37,000원에 즐겨보세요!",
+          "price": "정상가 42,000~46,000원 → 37,000원",
+          "details": "맥주는 판매 중인 제품 중 선택 가능합니다."
+        },
+        "en": {
+          "title": "Chicken & Beer Set Special",
+          "description": "Enjoy Chicken & Fries + 2 beers of your choice for just ₩37,000!",
+          "price": "Regular price ₩42,000–₩46,000 → ₩37,000",
+          "details": "Choose any 2 beers from our available selection."
+        },
+        "ja": {
+          "title": "チキン＆ビールセット 割引キャンペーン",
+          "description": "チキン＆フライドポテト + お好きなビール2本を37,000ウォンでお楽しみいただけます！",
+          "price": "通常価格 42,000～46,000ウォン → 37,000ウォン",
+          "details": "販売中のビールからお好きな2本をお選びいただけます。"
+        },
+        "zh": {
+          "title": "炸鸡 & 啤酒套餐优惠活动",
+          "description": "炸鸡 & 薯条 + 任选2瓶啤酒，优惠价仅需37,000韩元！",
+          "price": "原价 42,000～46,000韩元 → 37,000韩元",
+          "details": "可从店内现有啤酒中任选2瓶。"
+        }
+      }
+    },
+    {
+      "id": "ten-visit-pass",
+      "type": "pass_discount",
+      "active": true,
+      "audience_locales": [
+        "ko"
+      ],
+      "pricing": {
+        "regularWeekday": 200000,
+        "regularWeekend": 220000,
+        "passPrice": 180000,
+        "specialPrice": null
+      },
+      "translations": {
+        "ko": {
+          "regular": {
+            "title": "10회 이용권 할인",
+            "weekdayLabel": "평일 10회",
+            "weekendLabel": "주말 10회",
+            "passLabel": "10회 이용권",
+            "validity": "유효기간 구매일로부터 2년",
+            "registration": "원하는 휴대폰 번호로 10회 등록해 드립니다.",
+            "refundPolicy": "구매 후 환불은 불가합니다."
+          },
+          "special": {
+            "eyebrow": "10회 이용권 SPECIAL",
+            "title": "10회 이용권 특별 할인",
+            "description": "평소에도 할인되는 10회 이용권을 지금 한 번 더 할인해 드려요!",
+            "passLabel": "정기권",
+            "specialLabel": "특별가",
+            "regularPriceLabel": "정상 이용 시",
+            "limitedOffer": "기간 한정 특별 혜택"
+          }
+        }
+      }
+    }
+  ]
+}
