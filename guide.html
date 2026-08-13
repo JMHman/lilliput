@@ -90,6 +90,124 @@
       font-weight: bold;
     }
 
+    .event-trigger {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1001;
+      min-height: 42px;
+      padding: 0 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 0;
+      border-radius: 999px;
+      background: #3c2a1e;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(60, 42, 30, 0.2);
+    }
+
+    .event-trigger-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #f2a640;
+      box-shadow: 0 0 0 4px rgba(242, 166, 64, 0.18);
+    }
+
+    .event-trigger-count {
+      min-width: 18px;
+      height: 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #f2c064;
+      color: #3c2a1e;
+      font-size: 0.66rem;
+      letter-spacing: 0;
+    }
+
+    .event-modal-container {
+      max-width: 580px;
+      padding: 1.1rem 1.25rem 1.5rem;
+      background: #fffaf3;
+    }
+
+    .event-modal-header {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .event-modal-header strong {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .event-modal-header small {
+      color: #9b8c82;
+      font-size: 0.72rem;
+      letter-spacing: 0;
+    }
+
+    .event-modal-close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(60, 42, 30, 0.12);
+      border-radius: 50%;
+      background: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .event-stage { position: relative; margin-top: 0.65rem; }
+    .event-card {
+      min-height: 390px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      position: relative;
+      border-radius: 22px;
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(55, 31, 18, 0.2);
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      aspect-ratio: 1;
+      top: -100px;
+      right: -100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+    }
+    .event-card[data-type="review_reward"] { background: linear-gradient(145deg, #bf5c54, #6e2f32); }
+    .event-card[data-type="set_discount"] { background: linear-gradient(145deg, #a5682c, #4a2818); }
+    .event-card[data-type="pass_discount"] { background: linear-gradient(145deg, #385c58, #152e31); }
+    .event-card-kicker { position: absolute; top: 1.7rem; left: 1.75rem; font-size: .68rem; font-weight: 900; letter-spacing: .16em; opacity: .72; }
+    .event-card h2 { margin: 0 0 1rem; color: #fff; font-size: clamp(1.7rem, 7vw, 2.5rem); line-height: 1.15; letter-spacing: -.04em; }
+    .event-description { margin: 0; font-size: 1rem; font-weight: 650; line-height: 1.65; }
+    .event-price { margin: 1.25rem 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; }
+    .event-price del { opacity: .62; font-size: .82rem; }
+    .event-price strong { color: #ffe09d; font-size: 1.65rem; }
+    .event-note { margin: 1.25rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.22); font-size: .78rem; line-height: 1.6; opacity: .82; }
+    .event-nav { position: absolute; top: 50%; width: 38px; height: 38px; display: grid; place-items: center; transform: translateY(-50%); border: 0; border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 4px 14px rgba(0,0,0,.2); font-size: 1.7rem; cursor: pointer; }
+    .event-nav.previous { left: -19px; }
+    .event-nav.next { right: -19px; }
+    .event-dots { height: 34px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; }
+    .event-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: #c9bcb0; cursor: pointer; }
+    .event-dots button.active { width: 22px; border-radius: 999px; background: #5a3a2c; }
+
     h1 {
       text-align: center;
       color: #3c2a1e;
@@ -336,8 +454,11 @@
     }
 
     @media (max-width: 640px) {
+      .container { padding-top: 7rem; }
       .lang-buttons {
-        width: min(280px, 70vw);
+        width: min(260px, calc(100vw - 118px));
+        left: 0.75rem;
+        transform: none;
         gap: 0.35rem;
         padding: 0.25rem 0.8rem;
         scroll-snap-type: x mandatory;
@@ -392,6 +513,13 @@
         max-width: 100%;
         padding: 1.25rem;
       }
+
+      .event-trigger { right: .75rem; }
+      .event-modal-backdrop { align-items: flex-end; padding: 0; }
+      .event-modal-container { width: 100%; max-width: none; border-radius: 24px 24px 0 0; padding: 1rem 1rem calc(1.25rem + env(safe-area-inset-bottom)); }
+      .event-card { min-height: 390px; padding: 1.6rem 1.35rem; }
+      .event-card-kicker { top: 1.4rem; left: 1.35rem; }
+      .event-nav { display: none; }
     }
   </style>
 </head>
@@ -405,6 +533,11 @@
         <button class="lang-btn" data-lang="ja">日本語</button>
         <button class="lang-btn" data-lang="zh">中文</button>
       </div>
+      <button type="button" class="event-trigger" id="event-trigger" aria-haspopup="dialog" aria-controls="event-modal" aria-expanded="false">
+        <span class="event-trigger-dot" aria-hidden="true"></span>
+        <span>EVENT</span>
+        <span class="event-trigger-count" id="event-trigger-count">0</span>
+      </button>
 
       <!-- 제목 -->
       <h1 id="title">이용 안내</h1>
@@ -448,6 +581,27 @@
         class="modal-image"
         id="restroom-image"
       />
+    </div>
+  </div>
+
+  <div class="modal-backdrop event-modal-backdrop" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="event-card-title" hidden>
+    <div class="modal-container event-modal-container" tabindex="-1">
+      <div class="event-modal-header">
+        <strong><span class="event-trigger-dot" aria-hidden="true"></span> EVENT <small id="event-page-status"></small></strong>
+        <button type="button" class="event-modal-close" id="event-modal-close" aria-label="이벤트 닫기">×</button>
+      </div>
+      <div class="event-stage" id="event-stage">
+        <article class="event-card" id="event-card">
+          <span class="event-card-kicker" id="event-card-kicker"></span>
+          <h2 id="event-card-title"></h2>
+          <p class="event-description" id="event-description"></p>
+          <div class="event-price" id="event-price" hidden></div>
+          <p class="event-note" id="event-note"></p>
+        </article>
+        <button type="button" class="event-nav previous" id="event-previous" aria-label="이전 이벤트">‹</button>
+        <button type="button" class="event-nav next" id="event-next" aria-label="다음 이벤트">›</button>
+      </div>
+      <div class="event-dots" id="event-dots" aria-label="이벤트 페이지"></div>
     </div>
   </div>
 
@@ -768,8 +922,34 @@
     const restroomTitleElement = document.getElementById('restroom-title');
     const restroomStepsElement = document.getElementById('restroom-steps');
     const restroomImageElement = document.getElementById('restroom-image');
+    const eventTrigger = document.getElementById('event-trigger');
+    const eventTriggerCount = document.getElementById('event-trigger-count');
+    const eventModal = document.getElementById('event-modal');
+    const eventModalContainer = eventModal?.querySelector('.event-modal-container');
+    const eventModalClose = document.getElementById('event-modal-close');
+    const eventCard = document.getElementById('event-card');
+    const eventCardKicker = document.getElementById('event-card-kicker');
+    const eventCardTitle = document.getElementById('event-card-title');
+    const eventDescription = document.getElementById('event-description');
+    const eventPrice = document.getElementById('event-price');
+    const eventNote = document.getElementById('event-note');
+    const eventPageStatus = document.getElementById('event-page-status');
+    const eventPrevious = document.getElementById('event-previous');
+    const eventNext = document.getElementById('event-next');
+    const eventDots = document.getElementById('event-dots');
     let isRestroomModalOpen = false;
+    let isEventModalOpen = false;
     let lastFocusedElement = null;
+    let eventData = [];
+    let eventIndex = 0;
+    let eventTouchStart = null;
+
+    const eventUi = {
+      ko: { close: '이벤트 닫기', previous: '이전 이벤트', next: '다음 이벤트' },
+      en: { close: 'Close events', previous: 'Previous event', next: 'Next event' },
+      ja: { close: 'イベントを閉じる', previous: '前のイベント', next: '次のイベント' },
+      zh: { close: '关闭活动', previous: '上一个活动', next: '下一个活动' },
+    };
 
     function renderRestroomGuide(restroomData) {
       const base = fallbackRestroomData;
@@ -873,6 +1053,128 @@
       document.addEventListener('keydown', handleModalKeydown);
     }
 
+    function getVisibleEvents() {
+      return eventData.filter(event => event.active && (!event.audience_locales || event.audience_locales.includes(currentLang)));
+    }
+
+    function formatWon(value) {
+      return `${Number(value).toLocaleString('ko-KR')}원`;
+    }
+
+    function renderEvent() {
+      const visible = getVisibleEvents();
+      if (eventTriggerCount) eventTriggerCount.textContent = String(visible.length);
+      if (!visible.length) {
+        if (eventTrigger) eventTrigger.hidden = true;
+        return;
+      }
+      if (eventTrigger) eventTrigger.hidden = false;
+      eventIndex = Math.min(eventIndex, visible.length - 1);
+      const event = visible[eventIndex];
+      const translation = event.translations[currentLang] || event.translations.ko || event.translations.en;
+      if (!translation) return;
+
+      eventCard.dataset.type = event.type;
+      eventCardKicker.textContent = event.type === 'review_reward' ? 'REVIEW REWARD' : event.type === 'set_discount' ? 'LIMITED OFFER' : 'MEMBERSHIP';
+      eventCardTitle.textContent = event.type === 'pass_discount' && event.pricing.specialPrice
+        ? translation.special.title
+        : event.type === 'pass_discount' ? translation.regular.title : translation.title;
+
+      if (event.type === 'pass_discount') {
+        const special = event.pricing.specialPrice;
+        const copy = special ? translation.special : translation.regular;
+        eventDescription.textContent = special ? copy.description : copy.registration;
+        eventPrice.hidden = false;
+        eventPrice.innerHTML = special
+          ? `<del>${formatWon(event.pricing.passPrice)}</del><span>→</span><strong>${formatWon(special)}</strong>`
+          : `<del>평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)}</del><span>→</span><strong>${formatWon(event.pricing.passPrice)}</strong>`;
+        eventNote.textContent = special
+          ? `${copy.regularPriceLabel} · 평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)} · ${copy.limitedOffer}`
+          : `${copy.validity} · ${copy.refundPolicy}`;
+      } else {
+        eventDescription.textContent = translation.description;
+        const hasPrice = Boolean(translation.price && translation.details);
+        eventPrice.hidden = !hasPrice;
+        eventPrice.innerHTML = hasPrice ? `<del>${translation.price.split('→')[0].trim()}</del><span>→</span><strong>${translation.price.split('→')[1]?.trim() || ''}</strong>` : '';
+        eventNote.textContent = translation.platforms || translation.details || '';
+      }
+
+      eventPageStatus.textContent = `${eventIndex + 1} / ${visible.length}`;
+      const controlsVisible = visible.length > 1;
+      eventPrevious.hidden = !controlsVisible;
+      eventNext.hidden = !controlsVisible;
+      eventDots.innerHTML = '';
+      if (controlsVisible) visible.forEach((item, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = index === eventIndex ? 'active' : '';
+        dot.setAttribute('aria-label', `Event ${index + 1}`);
+        dot.addEventListener('click', () => { eventIndex = index; renderEvent(); });
+        eventDots.appendChild(dot);
+      });
+
+      const ui = eventUi[currentLang] || eventUi.en;
+      eventModalClose.setAttribute('aria-label', ui.close);
+      eventPrevious.setAttribute('aria-label', ui.previous);
+      eventNext.setAttribute('aria-label', ui.next);
+    }
+
+    function moveEvent(direction) {
+      const visible = getVisibleEvents();
+      if (!visible.length) return;
+      eventIndex = (eventIndex + direction + visible.length) % visible.length;
+      renderEvent();
+    }
+
+    function openEventModal() {
+      if (!eventModal || isEventModalOpen || !getVisibleEvents().length) return;
+      isEventModalOpen = true;
+      lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      eventModal.hidden = false;
+      document.body.classList.add('modal-open');
+      eventTrigger.setAttribute('aria-expanded', 'true');
+      renderEvent();
+      setTimeout(() => eventModalContainer?.focus(), 0);
+    }
+
+    function closeEventModal() {
+      if (!eventModal || !isEventModalOpen) return;
+      isEventModalOpen = false;
+      eventModal.hidden = true;
+      document.body.classList.remove('modal-open');
+      eventTrigger.setAttribute('aria-expanded', 'false');
+      lastFocusedElement?.focus?.();
+    }
+
+    function setupEventInteraction() {
+      eventTrigger?.addEventListener('click', openEventModal);
+      eventModalClose?.addEventListener('click', closeEventModal);
+      eventPrevious?.addEventListener('click', () => moveEvent(-1));
+      eventNext?.addEventListener('click', () => moveEvent(1));
+      eventModal?.addEventListener('click', event => { if (event.target === eventModal) closeEventModal(); });
+      eventCard?.addEventListener('touchstart', event => { eventTouchStart = event.touches[0]?.clientX ?? null; }, { passive: true });
+      eventCard?.addEventListener('touchend', event => {
+        if (eventTouchStart === null) return;
+        const delta = (event.changedTouches[0]?.clientX ?? eventTouchStart) - eventTouchStart;
+        if (Math.abs(delta) > 45) moveEvent(delta < 0 ? 1 : -1);
+        eventTouchStart = null;
+      }, { passive: true });
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && isEventModalOpen) closeEventModal(); });
+    }
+
+    async function loadEvents() {
+      try {
+        const response = await fetch('src/data/events/events.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        eventData = Array.isArray(payload.events) ? payload.events : [];
+      } catch (error) {
+        console.warn('이벤트 정보를 불러오지 못했습니다.', error);
+        eventData = [];
+      }
+      renderEvent();
+    }
+
     function createPriceTable(section, rows, extraClass = '') {
       const table = document.createElement('table');
       table.className = `price-table ${extraClass}`.trim();
@@ -955,6 +1257,8 @@
         menuButton.setAttribute('aria-label', menuLabel);
       }
       renderRestroomGuide(data.restroom);
+      eventIndex = 0;
+      renderEvent();
       
       // 섹션들 렌더링
       const sectionsContainer = document.getElementById('sections');
@@ -1024,6 +1328,8 @@
     // 초기 렌더링
     render();
     setupRestroomInteraction();
+    setupEventInteraction();
+    loadEvents();
 
     let lastShortenedBusinessHours = isShortenedBusinessHours();
     window.setInterval(() => {
