@@ -1061,6 +1061,15 @@
       return `${Number(value).toLocaleString('ko-KR')}원`;
     }
 
+    function getActiveSpecialPrice(pricing, now = new Date()) {
+      if (!pricing?.specialPrice) return null;
+      const startsAt = pricing.specialStartsAt ? new Date(pricing.specialStartsAt) : null;
+      const endsAt = pricing.specialEndsAt ? new Date(pricing.specialEndsAt) : null;
+      if (startsAt && now < startsAt) return null;
+      if (endsAt && now > endsAt) return null;
+      return pricing.specialPrice;
+    }
+
     function renderEvent() {
       const visible = getVisibleEvents();
       if (eventTriggerCount) eventTriggerCount.textContent = String(visible.length);
@@ -1076,12 +1085,13 @@
 
       eventCard.dataset.type = event.type;
       eventCardKicker.textContent = event.type === 'review_reward' ? 'REVIEW REWARD' : event.type === 'set_discount' ? 'LIMITED OFFER' : 'MEMBERSHIP';
-      eventCardTitle.textContent = event.type === 'pass_discount' && event.pricing.specialPrice
+      const activeSpecialPrice = event.type === 'pass_discount' ? getActiveSpecialPrice(event.pricing) : null;
+      eventCardTitle.textContent = event.type === 'pass_discount' && activeSpecialPrice
         ? translation.special.title
         : event.type === 'pass_discount' ? translation.regular.title : translation.title;
 
       if (event.type === 'pass_discount') {
-        const special = event.pricing.specialPrice;
+        const special = activeSpecialPrice;
         const copy = special ? translation.special : translation.regular;
         eventDescription.textContent = special ? copy.description : copy.registration;
         eventPrice.hidden = false;
@@ -1089,7 +1099,7 @@
           ? `<del>${formatWon(event.pricing.passPrice)}</del><span>→</span><strong>${formatWon(special)}</strong>`
           : `<del>평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)}</del><span>→</span><strong>${formatWon(event.pricing.passPrice)}</strong>`;
         eventNote.textContent = special
-          ? `${copy.regularPriceLabel} · 평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)} · ${copy.limitedOffer}`
+          ? `${copy.regularPriceLabel} · 평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)} · ${copy.period} · ${copy.limitedOffer}`
           : `${copy.validity} · ${copy.refundPolicy}`;
       } else {
         eventDescription.textContent = translation.description;

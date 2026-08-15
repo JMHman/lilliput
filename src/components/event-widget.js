@@ -57,6 +57,14 @@
     return ['ko', 'en', 'ja', 'zh'].includes(lang) ? lang : FALLBACK_LANGUAGE;
   };
   const formatWon = value => `${Number(value).toLocaleString('ko-KR')}원`;
+  const getActiveSpecialPrice = (pricing, now = new Date()) => {
+    if (!pricing?.specialPrice) return null;
+    const startsAt = pricing.specialStartsAt ? new Date(pricing.specialStartsAt) : null;
+    const endsAt = pricing.specialEndsAt ? new Date(pricing.specialEndsAt) : null;
+    if (startsAt && now < startsAt) return null;
+    if (endsAt && now > endsAt) return null;
+    return pricing.specialPrice;
+  };
 
   function renderCard() {
     if (!visibleEvents.length) return;
@@ -76,12 +84,13 @@
     } else if (event.type === 'review_reward') {
       note.textContent = translation.platforms || '';
     } else if (event.type === 'pass_discount') {
-      const special = event.pricing.specialPrice;
+      const special = getActiveSpecialPrice(event.pricing);
       if (special) {
         const copy = translation.special;
+        title.textContent = copy.title;
         description.textContent = copy.description;
         price.innerHTML = `<del>${formatWon(event.pricing.passPrice)}</del><span>→</span><strong>${formatWon(special)}</strong>`;
-        note.textContent = `${copy.regularLabel} · 평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)}`;
+        note.textContent = `${copy.regularPriceLabel} · 평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)} · ${copy.period} · ${copy.limitedOffer}`;
       } else {
         price.innerHTML = `<del>평일 ${formatWon(event.pricing.regularWeekday)} · 주말 ${formatWon(event.pricing.regularWeekend)}</del><span>→</span><strong>${formatWon(event.pricing.passPrice)}</strong>`;
         note.textContent = [translation.regular.validity, translation.regular.registration, translation.regular.refundPolicy].filter(Boolean).join(' · ');
