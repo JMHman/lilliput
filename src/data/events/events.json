@@ -70,7 +70,9 @@
         "regularWeekday": 200000,
         "regularWeekend": 220000,
         "passPrice": 180000,
-        "specialPrice": null
+        "specialPrice": 160000,
+        "specialStartsAt": "2026-08-15T00:00:00+09:00",
+        "specialEndsAt": "2026-08-31T23:59:59+09:00"
       },
       "translations": {
         "ko": {
@@ -90,7 +92,8 @@
             "passLabel": "정기권",
             "specialLabel": "특별가",
             "regularPriceLabel": "정상 이용 시",
-            "limitedOffer": "기간 한정 특별 혜택"
+            "limitedOffer": "기간 한정 특별 혜택",
+            "period": "2026년 8월 15일 ~ 8월 31일"
           }
         }
       }
