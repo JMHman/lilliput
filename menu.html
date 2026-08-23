@@ -606,6 +606,10 @@
       });
     }
 
+    function filterActiveMenuItems(items) {
+      return Array.isArray(items) ? items.filter(item => item.active !== false) : [];
+    }
+
     function triggerNewBadgeAnimation(card) {
       card.classList.remove('new-shake-active');
       // reflow to restart animation
@@ -996,9 +1000,9 @@
         const foods = await foodsRes.json();
         const drinks = await drinksRes.json();
 
-        const foodsArray = Array.isArray(foods) ? foods : [];
+        const foodsArray = filterActiveMenuItems(foods);
         state.menu.foods = filterTimeLimitedFoods(foodsArray);
-        state.menu.drinks = Array.isArray(drinks) ? drinks : [];
+        state.menu.drinks = filterActiveMenuItems(drinks);
       } catch (error) {
         console.error(error);
         state.loadError = true;
